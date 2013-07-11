@@ -79,4 +79,7 @@ else
     set background=dark
 endif
 
+let g:solarized_termtrans = 1
+let g:solarized_termcolors = 256
 colorscheme solarized
+hi LineNr ctermfg=244 ctermbg=NONE
