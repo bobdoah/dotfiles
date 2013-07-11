@@ -72,3 +72,11 @@ map <C-K> <C-W>k<C-W>_
 " Save folds between sessions
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
+
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
+colorscheme solarized
