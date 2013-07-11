@@ -190,4 +190,6 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-
+# Local vim state files.
+.viminfo
+vim/view/
