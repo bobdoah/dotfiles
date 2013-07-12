@@ -73,6 +73,7 @@ map <C-K> <C-W>k<C-W>_
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
 
+" Solarized settings
 if has('gui_running')
     set background=light
 else
@@ -83,3 +84,6 @@ let g:solarized_termtrans = 1
 let g:solarized_termcolors = 256
 colorscheme solarized
 hi LineNr ctermfg=244 ctermbg=NONE
+
+" Tagbar toggle key
+nmap <F8> :TagbarToggle<CR>
