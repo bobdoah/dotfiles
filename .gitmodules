@@ -19,3 +19,6 @@
 [submodule "vim/bundle/zoom-window"]
 	path = vim/bundle/zoom-window
 	url = https://github.com/vim-scripts/ZoomWin.git
+[submodule "vim/bundle/ack-vim"]
+	path = vim/bundle/ack-vim
+	url = https://github.com/mileszs/ack.vim.git
