@@ -87,3 +87,6 @@ hi LineNr ctermfg=244 ctermbg=NONE
 
 " Tagbar toggle key
 nmap <F8> :TagbarToggle<CR>
+
+" Sudo trick for saving when I forget to open as root
+cmap w!! w !sudo tee % > /dev/null
