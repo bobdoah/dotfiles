@@ -98,3 +98,6 @@ nnoremap <leader>a :Ack
 
 " Not vi compatible mode
 set nocompatible
+
+" Use UTF-8 encoding
+set encoding=utf-8
