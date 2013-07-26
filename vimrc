@@ -65,10 +65,6 @@ endfunc
 " Map the numbering mode toggle to a key
 nnoremap <silent><F3> :call g:ToggleNuMode()<CR>
  
-" Move using the standard keys between panes
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-
 " Save folds between sessions
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
