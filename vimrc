@@ -86,3 +86,6 @@ nmap <F8> :TagbarToggle<CR>
 
 " Sudo trick for saving when I forget to open as root
 cmap w!! w !sudo tee % > /dev/null
+
+" Enable Wildmenu
+set wildmode=list:longest,full
