@@ -89,3 +89,6 @@ cmap w!! w !sudo tee % > /dev/null
 
 " Enable Wildmenu
 set wildmode=list:longest,full
+
+" Disable the modeline (often a security risk)
+set nomodeline
