@@ -101,3 +101,7 @@ set nocompatible
 
 " Use UTF-8 encoding
 set encoding=utf-8
+
+" Map some keys for the location list next and previous commands
+nnoremap <silent><C-j> :lnext<CR>
+nnoremap <silent><C-k> :lprev<cr>
