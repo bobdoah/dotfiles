@@ -95,3 +95,6 @@ set nomodeline
 
 " Bind a key for ack'ing
 nnoremap <leader>a :Ack
+
+" Not vi compatible mode
+set nocompatible
