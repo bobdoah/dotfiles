@@ -92,3 +92,6 @@ set wildmode=list:longest,full
 
 " Disable the modeline (often a security risk)
 set nomodeline
+
+" Bind a key for ack'ing
+nnoremap <leader>a :Ack
