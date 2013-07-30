@@ -105,3 +105,14 @@ set encoding=utf-8
 " Map some keys for the location list next and previous commands
 nnoremap <silent><C-j> :lnext<CR>
 nnoremap <silent><C-k> :lprev<cr>
+
+" Powerline status bar
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" Make sure the powerline status bar is always displayed
+set laststatus=2
+
+" Hide the mode
+set noshowmode

@@ -15,3 +15,7 @@ Bobdoah's Dotfiles
 ----------------------
     ln -s ~/dotfiles/vim ~/.vim
     ln -s ~/dotfiles/vimrc ~/.vimrc
+
+4. Install powerline
+--------------------
+    pip install --user ~/dotfiles/powerline
