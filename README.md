@@ -18,6 +18,8 @@ Bobdoah's Dotfiles
     ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
     ln -s ~/dotfiles/tmux ~/.tmux
     ln -s ~/dotfiles/config ~/.config
+    ln -s ~/dotfiles/zshrc ~/.zshrc
+    ln -s ~/dotfiles/zshenv ~/.zshenv
 
 4. Install powerline
 --------------------
