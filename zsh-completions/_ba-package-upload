@@ -1,0 +1,12 @@
+#compdef ba-package-upload
+_ba-package-upload_package_files (){
+    _files -g '*.tar' -W "($BA_PACKAGE_DIRS)"
+}
+
+_ba-package-upload(){
+    _arguments \
+        "1: :($BA_PRIVATE_HOSTS)" \
+        "2:filename:_ba-package-upload_package_files"
+}
+
+_ba-package-upload "$@"
