@@ -5,6 +5,9 @@ bindkey -e
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
+# backwards TAB
+bindkey '^[[Z' reverse-menu-complete
+
 # Use colors
 autoload -U colors && colors
 
