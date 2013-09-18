@@ -25,11 +25,15 @@ zstyle ':completion:*' menu select=2
 alias su="sudo -sE"
 alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg= -n"
 
-function ba-console() { ssh -t $1 su -; }
-function ba-package-upload() { ssc $1 package-upgrade $2; }
-
 export BA_PRIVATE_HOSTS="merc-rw-1 merc-rw-2 m2rw"
-export BA_PACKAGE_DIRS="/home/company/software/release/ /mnt/stanley/home/dts/"
+export BA_PACKAGE_DIRS="/home/company/software/release /mnt/stanley/home/dts"
+function ba-console() { ssh -t $1 su -; }
+function ba-package-upload() { 
+package_file=$2
+for dirname in ${=BA_PACKAGE_DIRS}; do if [ -f $dirname/$package_file ]; then package_file=$dirname/$package_file; fi done
+    ssc $1 package-upgrade $package_file; 
+}
+
 
 
 compctl -k "($BA_PRIVATE_HOSTS)" ba-console 
