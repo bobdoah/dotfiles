@@ -35,7 +35,7 @@ for dirname in ${=BA_PACKAGE_DIRS}; do if [ -f $dirname/$package_file ]; then pa
 }
 
 
-
 compctl -k "($BA_PRIVATE_HOSTS)" ba-console 
 
-
+# Load virtualenvwrapper
+source $HOME/.local/bin/virtualenvwrapper.sh
