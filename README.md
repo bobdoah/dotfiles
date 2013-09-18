@@ -20,6 +20,7 @@ Bobdoah's Dotfiles
     ln -s ~/dotfiles/config ~/.config
     ln -s ~/dotfiles/zshrc ~/.zshrc
     ln -s ~/dotfiles/zshenv ~/.zshenv
+    ln -s ~/dotfiles/zsh ~/.zsh
 
 4. Install powerline
 --------------------

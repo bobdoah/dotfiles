@@ -14,7 +14,7 @@ export PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%}:%{
 export RPROMPT=''
 
 # Update fpath to include home directory
-fpath=($HOME/.zsh-completions/ $fpath)
+fpath=($HOME/.zsh/completions/ $fpath)
 
 # Use completion
 autoload -U compinit && compinit
