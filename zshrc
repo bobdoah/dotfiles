@@ -25,7 +25,6 @@ autoload -U compinit && compinit
 # Show completion menu when number of options is at least two
 zstyle ':completion:*' menu select=2
 
-alias su="sudo -sE"
 alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg= -n"
 
 export BA_PRIVATE_HOSTS="merc-rw-1 merc-rw-2 m2rw"
