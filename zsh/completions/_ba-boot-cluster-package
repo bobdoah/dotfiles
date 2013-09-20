@@ -1,0 +1,18 @@
+#compdef ba-boot-cluster-package
+_ba-get-cluster-packages() {
+    ba_cluster_packages=$(ssc -u supervisor -p supervisor $1 package-list | grep .tar | grep -v patch | awk '{ print $1 }' | xargs)
+}
+_ba-boot-cluster-package () {
+    local curcontext="$curcontext" state line
+    _arguments \
+        "1: :($BA_PRIVATE_HOSTS)" \
+        "2: :->package_name"
+    case $state in 
+        package_name)
+            _ba-get-cluster-packages $words[2]
+            compadd "$@" ${=ba_cluster_packages}
+        ;;
+    esac
+}
+
+_ba-boot-cluster-package "$@"
