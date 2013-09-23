@@ -193,3 +193,6 @@ $RECYCLE.BIN/
 # Local vim state files.
 .viminfo
 vim/view/
+
+# Irssi SASL auth file
+irssi/sasl.auth
