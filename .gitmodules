@@ -28,3 +28,6 @@
 [submodule "powerline"]
 	path = powerline
 	url = https://github.com/Lokaltog/powerline.git
+[submodule "irssi/irssi-colors-solarized"]
+	path = irssi/irssi-colors-solarized
+	url = git://github.com/huyz/irssi-colors-solarized.git
