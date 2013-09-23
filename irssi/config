@@ -282,6 +282,6 @@ settings = {
       hilight_color = "= %R";
   };
 };
-hilights = {
+hilights = (
   { text = "bobdoah"; color = "%M"; nick = "yes"; word = "yes"; }
-};
+);
