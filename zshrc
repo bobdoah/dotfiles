@@ -27,6 +27,8 @@ zstyle ':completion:*' menu select=2
 
 alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg= -n"
 
+source $HOME/.zsh/private
+
 export BA_PRIVATE_HOSTS="merc-rw-1 merc-rw-2 m2rw"
 export BA_PACKAGE_DIRS="/home/company/software/release /mnt/stanley/home/dts"
 function ba-console() { ssh -t $1 su -; }
