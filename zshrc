@@ -59,5 +59,9 @@ function ba-boot-cluster-package(){
 
 compctl -k "($BA_PRIVATE_HOSTS)" ba-console 
 
+# Local PIP packages
+export PIP_EXTRA_INDEX_URL="http://dante.terastack.bluearc.com/packages"
+
 # Load virtualenvwrapper
 source $HOME/.local/bin/virtualenvwrapper.sh
+
