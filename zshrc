@@ -65,3 +65,9 @@ export PIP_EXTRA_INDEX_URL="http://dante.terastack.bluearc.com/packages"
 # Load virtualenvwrapper
 source $HOME/.local/bin/virtualenvwrapper.sh
 
+
+# Suffix aliases
+autoload -U zsh-mime-setup
+zsh-mime-setup
+
+alias -s py='ipython -i'
