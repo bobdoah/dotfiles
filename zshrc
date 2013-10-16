@@ -17,7 +17,9 @@ export PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%}:%{
 export RPROMPT=''
 
 # Update fpath to include home directory
-fpath=($HOME/.zsh/completions/ $fpath)
+if [[ $(id -u ) != $(id -u root) ]]; then
+    fpath=($HOME/.zsh/completions/ $fpath)
+fi
 
 # Use completion
 autoload -U compinit && compinit
@@ -63,7 +65,9 @@ compctl -k "($BA_PRIVATE_HOSTS)" ba-console
 export PIP_EXTRA_INDEX_URL="http://dante.terastack.bluearc.com/packages"
 
 # Load virtualenvwrapper
-source $HOME/.local/bin/virtualenvwrapper.sh
+if [[ $(id -u) != $(id -u root) ]]; then
+    source $HOME/.local/bin/virtualenvwrapper.sh
+fi
 
 
 # Suffix aliases
