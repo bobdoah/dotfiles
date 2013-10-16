@@ -196,6 +196,8 @@ vim/view/
 
 # Irssi SASL auth file
 irssi/sasl.auth
+# Irssi away log file
+irssi/away.log
 
 # Private zsh source
 zsh/private
