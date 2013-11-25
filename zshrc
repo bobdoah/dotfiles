@@ -5,8 +5,7 @@ bindkey -e
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
-# Set shared history
-setopt share_history
+# Save history
 export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTFILE=$HOME/.zsh/histfile
