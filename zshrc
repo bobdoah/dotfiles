@@ -27,7 +27,7 @@ autoload -U compinit && compinit
 # Show completion menu when number of options is at least two
 zstyle ':completion:*' menu select=2
 
-alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg= -n"
+alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg="
 
 source $HOME/.zsh/private
 
