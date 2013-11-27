@@ -32,7 +32,6 @@ if [[ $(id -u ) != $(id -u root) && -d $HNAS_SCRIPTS_DIR ]]; then
    source $HNAS_SCRIPTS_DIR/env
    fpath=($HNAS_SCRIPTS_DIR/scripts $HNAS_SCRIPTS_DIR/completions $fpath)
    autoload -U $HNAS_SCRIPTS_DIR/scripts/*(:t)
-   echo "loaded hnas scripts" 
 fi
 
 # Use completion
