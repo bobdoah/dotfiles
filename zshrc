@@ -1,9 +1,32 @@
 # Use emacs mode (same as bash default)
 bindkey -e 
 
-# Use up and down arrows to search history
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
+source $HOME/.zsh/zkbd-terminfo
+# Line editing keys
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+
+# History keys
+[[ -n "${key[PageUp]}" ]] && bindkey "${key[PageUp]}" history-beginning-search-backward
+[[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" history-beginning-search-forward
+[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" history-beginning-search-backward
+[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" history-beginning-search-forward
+
+# Make sure the terminal is in application mode
+function zle-line-init () {
+    echoti smkx
+}
+
+function zle-line-finish () {
+    echoti rmkx
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
 
 # Save history
 export HISTSIZE=1000
