@@ -1,9 +1,37 @@
 # Use emacs mode (same as bash default)
 bindkey -e 
 
-# Use up and down arrows to search history
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
+source $HOME/.zsh/zkbd-terminfo
+# Line editing keys
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+
+# History keys
+[[ -n "${key[PageUp]}" ]] && bindkey "${key[PageUp]}" history-beginning-search-backward
+[[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" history-beginning-search-forward
+[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" history-beginning-search-backward
+[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" history-beginning-search-forward
+
+# Make sure the terminal is in application mode
+function zle-line-init () {
+    echoti smkx
+}
+
+function zle-line-finish () {
+    echoti rmkx
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+
+# Save history
+export HISTSIZE=1000
+export SAVEHIST=1000
+export HISTFILE=$HOME/.zsh/histfile
 
 # backwards TAB
 bindkey '^[[Z' reverse-menu-complete
@@ -17,7 +45,15 @@ export PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%}:%{
 export RPROMPT=''
 
 # Update fpath to include home directory
-fpath=($HOME/.zsh/completions/ $fpath)
+if [[ $(id -u ) != $(id -u root) ]]; then
+    fpath=($HOME/.zsh/completions/ $fpath)
+fi
+
+# Include all the HNAS scripts, if the directory exists and we aren't root
+if [[ $(id -u ) != $(id -u root) && -d $HNAS_SCRIPTS_DIR ]]; then
+   fpath=($HNAS_SCRIPTS_DIR/scripts $HNAS_SCRIPTS_DIR/completions $fpath)
+   autoload -U $HNAS_SCRIPTS_DIR/scripts/*(:t)
+fi
 
 # Use completion
 autoload -U compinit && compinit
@@ -25,37 +61,25 @@ autoload -U compinit && compinit
 # Show completion menu when number of options is at least two
 zstyle ':completion:*' menu select=2
 
-alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg= -n"
+alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg="
 
-export BA_PRIVATE_HOSTS="merc-rw-1 merc-rw-2 m2rw"
-export BA_PACKAGE_DIRS="/home/company/software/release /mnt/stanley/home/dts"
-function ba-console() { ssh -t $1 su -; }
-function ba-package-upload() { 
-package_file=$2
-for dirname in ${=BA_PACKAGE_DIRS}; do if [ -f $dirname/$package_file ]; then package_file=$dirname/$package_file; fi done
-    ssc $1 package-upgrade $package_file; 
-}
+source $HOME/.zsh/private
 
-function ba-boot-cluster-package(){
-    ssc $1 for-each-cnode package-set-default $2;
-    if [ $? -eq 0 ]; then
-        echo "$2 is now the default package, rebooting"
-        ssc $1 reboot -fa --app
-        if [ $? -eq 1 ]; then
-            echo "Rebooting Linux"
-            ssc $1 reboot -fa
-            if [ $? -eq 1 ]; then
-                echo "Failed to reboot"
-            fi
-        else
-            echo "Rebooting BALI"
-        fi
-    else
-        echo "Failed to set default to $2"
-    fi
-}
 
-compctl -k "($BA_PRIVATE_HOSTS)" ba-console 
+# Local PIP packages
+export PIP_EXTRA_INDEX_URL="http://dante.terastack.bluearc.com/packages"
 
 # Load virtualenvwrapper
-source $HOME/.local/bin/virtualenvwrapper.sh
+if [[ $(id -u) != $(id -u root) ]]; then
+    source $HOME/.local/bin/virtualenvwrapper.sh
+fi
+
+
+# Suffix aliases
+autoload -U zsh-mime-setup
+zsh-mime-setup
+
+alias -s py='ipython -i'
+
+# Add an alias to quickly reload zshrc
+alias reload="source $HOME/.zshrc"

@@ -117,3 +117,8 @@ set laststatus=2
 
 " Hide the mode
 set noshowmode
+
+" Set the font for gvim in windows
+if has("gui_win32")
+    set guifont=Powerline_Consolas:h11:cANSI
+endif

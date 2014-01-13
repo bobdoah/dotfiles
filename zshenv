@@ -1,6 +1,16 @@
 export EDITOR=vim
 
+# local path
+PATH=/usr/local/bin:$PATH
 # Superuser locations
-PATH=/sbin:/usr/local/sbin:$PATH
+PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 # Home directory paths 
 PATH=$HOME/bin:$HOME/.local/bin:$PATH
+PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
+
+# HNAS scripts directory location
+HNAS_SCRIPTS_DIR=$HOME/.zsh/hnas-scripts 
+if [[ $(id -u ) != $(id -u root) && -d $HNAS_SCRIPTS_DIR ]]; then
+    source ~/.zsh/hnas-scripts/env
+    PATH=$HNAS_SCRIPTS_DIR/scripts:$PATH
+fi
