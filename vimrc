@@ -1,5 +1,27 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim 
-call pathogen#infect()
+" add vundle to the runtime path
+filetype off
+if has('win32') || has('win64')
+    " Windows vundle
+    set rtp+=~/vimfiles/bundle/vundle/
+    call vundle#rc('$HOME/vimfiles/bundle/')
+else 
+    " Normal quickstart instructions
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+endif
+
+Bundle 'gmarik/vundle'
+
+"plugin bundles:
+Bundle 'mileszs/ack.vim'
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/ZoomWin'
+
+
 
 " Tab settings
 set shiftwidth=4

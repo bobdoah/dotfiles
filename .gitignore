@@ -202,3 +202,7 @@ irssi/away.log
 # Private zsh source
 zsh/private
 zsh/histfile
+
+" vim bundles, except vundle submodule
+vim/bundle
+!vim/bundle/vundle
