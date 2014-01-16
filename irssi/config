@@ -96,9 +96,7 @@ chatnets = {
     max_whois = "30";
   };
   SILC = { type = "SILC"; };
-  freenode = {
-    type = "IRC";
-  };
+  freenode = { type = "IRC"; };
 };
 
 channels = (
@@ -278,8 +276,8 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
-      theme = "solarized-universal";
-      hilight_color = "= %R";
+    theme = "solarized-universal";
+    hilight_color = "= %R";
   };
 };
 hilights = (
