@@ -71,7 +71,7 @@ export PIP_EXTRA_INDEX_URL="http://dante.terastack.bluearc.com/packages"
 
 # Load virtualenvwrapper
 if [[ $(id -u) != $(id -u root) ]]; then
-    source $HOME/.local/bin/virtualenvwrapper.sh
+    source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 
