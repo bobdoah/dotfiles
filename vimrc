@@ -20,7 +20,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/ZoomWin'
-
+Bundle 'rosenfeld/conque-term'
 
 
 " Tab settings
