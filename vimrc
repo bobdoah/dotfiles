@@ -23,6 +23,14 @@ Bundle 'vim-scripts/ZoomWin'
 Bundle 'rosenfeld/conque-term'
 Bundle 'scrooloose/nerdtree'
 
+" Map j and k to move down/up a single row each time
+nmap j gj
+nmap k gk
+
+" Make the searching case insensitive, unless upper case characters are
+" included
+set ignorecase
+set smartcase
 
 " Tab settings
 set shiftwidth=4
