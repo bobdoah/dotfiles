@@ -21,6 +21,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'rosenfeld/conque-term'
+Bundle 'scrooloose/nerdtree'
 
 
 " Tab settings
