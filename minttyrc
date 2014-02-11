@@ -20,3 +20,9 @@ Cyan=             42, 161, 152
 BoldCyan=        147, 161, 161
 White=           238, 232, 213
 BoldWhite=       253, 246, 227
+
+# Font settings:
+
+Font=Powerline Consolas
+FontHeight=10
+Term=xterm-256color
