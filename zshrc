@@ -45,12 +45,12 @@ export PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%}:%{
 export RPROMPT=''
 
 # Update fpath to include home directory
-if [[ $(id -u ) != $(id -u root) ]]; then
+if [[ $(id -u ) != $(id -u root 2>>/dev/null) ]]; then
     fpath=($HOME/.zsh/completions/ $fpath)
 fi
 
 # Include all the HNAS scripts, if the directory exists and we aren't root
-if [[ $(id -u ) != $(id -u root) && -d $HNAS_SCRIPTS_DIR ]]; then
+if [[ $(id -u ) != $(id -u root 2>/dev/null) && -d $HNAS_SCRIPTS_DIR ]]; then
    fpath=($HNAS_SCRIPTS_DIR/scripts $HNAS_SCRIPTS_DIR/completions $fpath)
    autoload -U $HNAS_SCRIPTS_DIR/scripts/*(:t)
 fi
@@ -63,14 +63,14 @@ zstyle ':completion:*' menu select=2
 
 alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg="
 
-source $HOME/.zsh/private
+source $HOME/.zsh/private 2>/dev/null
 
 
 # Local PIP packages
 export PIP_EXTRA_INDEX_URL="http://dante.terastack.bluearc.com/packages"
 
 # Load virtualenvwrapper
-if [[ $(id -u) != $(id -u root) ]]; then
+if [[ $(id -u) != $(id -u root 2>/dev/null)  && "$OSTYPE" != "cygwin" ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
