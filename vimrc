@@ -22,6 +22,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'rosenfeld/conque-term'
 Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surround'
+Bundle 'bling/vim-airline'
 
 " Map j and k to move down/up a single row each time
 nmap j gj
@@ -108,9 +110,8 @@ else
 endif
 
 let g:solarized_termtrans = 1
-let g:solarized_termcolors = 256
+let g:solarized_termcolors = 16
 colorscheme solarized
-hi LineNr ctermfg=244 ctermbg=NONE
 
 " Tagbar toggle key
 nmap <F8> :TagbarToggle<CR>
@@ -137,11 +138,9 @@ set encoding=utf-8
 nnoremap <silent><C-j> :lnext<CR>
 nnoremap <silent><C-k> :lprev<cr>
 
-" Powerline status bar
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-let g:Powerline_symbols = 'fancy'
+" vim-airline status bar
+" use the fancy powerline symbols
+let g:airline_powerline_fonts = 1
 
 " Make sure the powerline status bar is always displayed
 set laststatus=2
