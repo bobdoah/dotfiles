@@ -79,7 +79,5 @@ fi
 autoload -U zsh-mime-setup
 zsh-mime-setup
 
-alias -s py='ipython -i'
-
 # Add an alias to quickly reload zshrc
 alias reload="source $HOME/.zshrc"
