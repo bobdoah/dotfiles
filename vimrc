@@ -20,10 +20,11 @@ Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/ZoomWin'
-Bundle 'rosenfeld/conque-term'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 Bundle 'bling/vim-airline'
+Bundle 'ludovicchabant/vim-lawrencium'
+Bundle 'bling/vim-bufferline'
 
 " Map j and k to move down/up a single row each time
 nmap j gj

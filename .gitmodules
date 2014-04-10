@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "dircolors/dircolors-solarized"]
+	path = dircolors/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
