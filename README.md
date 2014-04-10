@@ -21,6 +21,8 @@ Bobdoah's Dotfiles
     ln -s ~/dotfiles/zshrc ~/.zshrc
     ln -s ~/dotfiles/zshenv ~/.zshenv
     ln -s ~/dotfiles/zsh ~/.zsh
+    ln -s ~/dotfiles/dircolors ~/.dircolors
+    ln -s ~/dotfiles/irssi ~/.irssi
 
 4. Install powerline
 --------------------

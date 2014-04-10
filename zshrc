@@ -81,3 +81,7 @@ zsh-mime-setup
 
 # Add an alias to quickly reload zshrc
 alias reload="source $HOME/.zshrc"
+
+# Colourful ls
+eval $(dircolors ~/.dircolors/dircolors-solarized/dircolors.ansi-dark)
+alias ls="ls --color"
