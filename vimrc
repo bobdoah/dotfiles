@@ -25,7 +25,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'bling/vim-airline'
 Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'bling/vim-bufferline'
-Bundle 'garbas/snipmate.vim'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle 'garbas/vim-snipmate'
+Bundle "honza/vim-snippets"
 
 " Map j and k to move down/up a single row each time
 nmap j gj
