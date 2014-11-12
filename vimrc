@@ -29,6 +29,8 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
 Bundle "honza/vim-snippets"
+Bundle 'tpope/vim-abolish'
+Bundle 'jlfwong/vim-mercenary'
 
 " Map j and k to move down/up a single row each time
 nmap j gj
