@@ -13,7 +13,8 @@ PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 
 # HNAS scripts directory location
 HNAS_SCRIPTS_DIR=$HOME/.zsh/hnas-scripts 
-if [[ $(id -u ) != $(id -u root 2>/dev/null) && -d $HNAS_SCRIPTS_DIR ]]; then
-    source ~/.zsh/hnas-scripts/env
+HNAS_ENV=$HNAS_SCRIPTS_DIR/env
+if [[ $(id -u ) != $(id -u root 2>/dev/null) && -f $HNAS_ENV ]]; then
+    source $HNAS_ENV
     PATH=$HNAS_SCRIPTS_DIR/scripts:$PATH
 fi

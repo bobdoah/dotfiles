@@ -50,7 +50,7 @@ if [[ $(id -u ) != $(id -u root 2>>/dev/null) ]]; then
 fi
 
 # Include all the HNAS scripts, if the directory exists and we aren't root
-if [[ $(id -u ) != $(id -u root 2>/dev/null) && -d $HNAS_SCRIPTS_DIR ]]; then
+if [[ $(id -u ) != $(id -u root 2>/dev/null) && -f $HNAS_ENV ]]; then
    fpath=($HNAS_SCRIPTS_DIR/scripts $HNAS_SCRIPTS_DIR/completions $fpath)
    autoload -U $HNAS_SCRIPTS_DIR/scripts/*(:t)
 fi
@@ -70,8 +70,9 @@ source $HOME/.zsh/private 2>/dev/null
 export PIP_EXTRA_INDEX_URL="http://dante.terastack.bluearc.com/packages"
 
 # Load virtualenvwrapper
-if [[ $(id -u) != $(id -u root 2>/dev/null)  && "$OSTYPE" != "cygwin" ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+VIRTUAL_ENV_WRAPPER=/usr/local/bin/virtualenvwrapper.sh
+if [[ $(id -u) != $(id -u root 2>/dev/null)  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
+    source $VIRTUAL_ENV_WRAPPER
 fi
 
 
