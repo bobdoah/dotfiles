@@ -31,6 +31,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle "honza/vim-snippets"
 Bundle 'tpope/vim-abolish'
 Bundle 'jlfwong/vim-mercenary'
+Bundle 'edkolev/tmuxline.vim'
 
 " Map j and k to move down/up a single row each time
 nmap j gj
@@ -147,7 +148,10 @@ nnoremap <silent><C-k> :lprev<cr>
 
 " vim-airline status bar
 " use the fancy powerline symbols
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
+set ambiwidth=double
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 " Make sure the powerline status bar is always displayed
 set laststatus=2
@@ -159,3 +163,29 @@ set noshowmode
 if has("gui_win32")
     set guifont=Powerline_Consolas:h11:cANSI
 endif
+
+"let g:tmuxline_theme = 'airline_insert'
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#F',
+      \'c'    : ['#W', '#P'],
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'x'    : '',
+      \'y'    : '%R',
+      \'z'    : '#h'}
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_powerline_separators = 0
+
+let g:tmuxline_theme = {
+            \ 'a': [15, 33, 'bold'],
+            \ 'b': [7, 11, ''],
+            \ 'c': [14, '0', ''],
+            \ 'bg': [10, '0', ''],
+            \ 'x': [10, '0', ''], 
+            \ 'y': [7, 11, ''], 
+            \ 'z': [15, 33, ''], 
+            \ 'cwin': [7, 33, ''], 
+            \ 'win': [14, '0', ''], 
+            \ 'win.activity': [1, '0', 'none']
+            \ }
