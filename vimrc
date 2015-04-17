@@ -46,7 +46,8 @@ set smartcase
 set shiftwidth=4
 set shiftround
 set expandtab
-set tabstop=4
+set softtabstop=4
+set tabstop=8
 
 " Enable line numbering
 set nu
@@ -189,3 +190,10 @@ let g:tmuxline_theme = {
             \ 'win': [14, '0', ''], 
             \ 'win.activity': [1, '0', 'none']
             \ }
+
+autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expandtab
+
+let bitkeeper = expand("~/work/misc/tools/vim/plugins/bitkeeper.vim")
+if filereadable(bitkeeper)
+    silent! execute 'source'.bitkeeper
+endif
