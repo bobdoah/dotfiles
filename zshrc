@@ -66,9 +66,6 @@ alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg="
 source $HOME/.zsh/private 2>/dev/null
 
 
-# Local PIP packages
-export PIP_EXTRA_INDEX_URL="http://dante.terastack.bluearc.com/packages"
-
 # Load virtualenvwrapper
 VIRTUAL_ENV_WRAPPER=/usr/local/bin/virtualenvwrapper.sh
 if [[ $(id -u) != $(id -u root 2>/dev/null)  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
