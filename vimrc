@@ -193,7 +193,10 @@ let g:tmuxline_theme = {
 
 autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expandtab
 
-let bitkeeper = expand("~/work/misc/tools/vim/plugins/bitkeeper.vim")
-if filereadable(bitkeeper)
-    silent! execute 'source'.bitkeeper
+let hnas_plugins = expand("~/work/misc/tools/vim/load_plugins.vim")
+if filereadable(hnas_plugins)
+    silent! execute 'source'.hnas_plugins
+    let g:checkintool_post_check_in_comment="yes"
+    let g:checkintool_bk_pre_commit_check_allow_gui="yes"
+    let g:checkintool_confirm_discards="yes"
 endif
