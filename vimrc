@@ -22,7 +22,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
-Bundle 'bling/vim-airline'
 Bundle 'ludovicchabant/vim-lawrencium'
 Bundle 'bling/vim-bufferline'
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -32,6 +31,8 @@ Bundle "honza/vim-snippets"
 Bundle 'tpope/vim-abolish'
 Bundle 'jlfwong/vim-mercenary'
 Bundle 'edkolev/tmuxline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Map j and k to move down/up a single row each time
 nmap j gj
