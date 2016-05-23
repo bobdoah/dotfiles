@@ -83,3 +83,11 @@ alias reload="source $HOME/.zshrc"
 # Colourful ls
 eval $(dircolors ~/.dircolors/dircolors-solarized/dircolors.ansi-dark)
 alias ls="ls --color"
+
+# Set display
+PID=$(pgrep -n -u $USER XWin)
+if [ -n $PID ]; then
+    export DISPLAY=$(pgrep -l -f XWin | ruby -pe "gsub(/.+(\d*:\d*(\.\d*)?).+/, '\1')" | head -n 1)
+fi
+
+
