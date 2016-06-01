@@ -66,6 +66,7 @@ endif
 
 " Syntastic settings
 let g:syntastic_python_pylint_args=" -f parseable -r n -i y --errors-only"
+let g:syntastic_rst_checkers = ['sphinx']
  
 " Makefiles have to use tabs
 autocmd FileType make set noexpandtab shiftwidth=8
