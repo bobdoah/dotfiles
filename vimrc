@@ -202,3 +202,6 @@ if filereadable(hnas_plugins)
     let g:checkintool_bk_pre_commit_check_allow_gui="yes"
     let g:checkintool_confirm_discards="yes"
 endif
+
+" Setup the camel case motion mapping.
+call camelcasemotion#CreateMotionMappings('<leader>')
