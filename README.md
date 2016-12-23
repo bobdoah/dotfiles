@@ -23,7 +23,3 @@ Bobdoah's Dotfiles
     ln -s ~/dotfiles/zsh ~/.zsh
     ln -s ~/dotfiles/dircolors ~/.dircolors
     ln -s ~/dotfiles/irssi ~/.irssi
-
-4. Install powerline
---------------------
-    pip install --user ~/dotfiles/powerline

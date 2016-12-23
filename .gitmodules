@@ -25,9 +25,6 @@
 [submodule "tmux/tmux-colors-solarized"]
 	path = tmux/tmux-colors-solarized
 	url = https://github.com/seebi/tmux-colors-solarized.git
-[submodule "powerline"]
-	path = powerline
-	url = https://github.com/Lokaltog/powerline.git
 [submodule "irssi/irssi-colors-solarized"]
 	path = irssi/irssi-colors-solarized
 	url = git://github.com/huyz/irssi-colors-solarized.git
@@ -35,7 +32,7 @@
 	path = zsh/hnas-scripts
 	url = http://rwilliams@hal.dev.bluearc.com/repos/users/rwilliams/zsh-scripts
 [submodule "vim/bundle/vundle"]
-	path = vim/bundle/vundle
+	path = vim/bundle/Vundle.vim
 	url = https://github.com/gmarik/vundle.git
 [submodule "dircolors/dircolors-solarized"]
 	path = dircolors/dircolors-solarized
