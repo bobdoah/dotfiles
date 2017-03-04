@@ -194,6 +194,7 @@ let g:tmuxline_theme = {
             \ }
 
 autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expandtab
+autocmd FileType robot set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 
 let hnas_plugins = expand("~/work/misc/tools/vim/load_plugins.vim")
 if filereadable(hnas_plugins)
