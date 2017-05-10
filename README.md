@@ -13,6 +13,7 @@ Bobdoah's Dotfiles
 
 3. Create the symlinks
 ----------------------
+    ln -s ~/dotfiles/ackrc ~/.ackrc
     ln -s ~/dotfiles/vim ~/.vim
     ln -s ~/dotfiles/vimrc ~/.vimrc
     ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
@@ -24,6 +25,7 @@ Bobdoah's Dotfiles
     ln -s ~/dotfiles/dircolors ~/.dircolors
     ln -s ~/dotfiles/irssi ~/.irssi
 
-4. Install powerline
---------------------
-    pip install --user ~/dotfiles/powerline
+4. Install Vundle plugins
+-------------------------
+
+    vim +PluginInstall +qall
