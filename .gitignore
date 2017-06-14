@@ -212,3 +212,6 @@ config/Pinta
 config/gtk-2.0
 config/inkscape
 config/mono.addins
+
+" Tmux plugsin
+tmux/plugins
