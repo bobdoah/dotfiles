@@ -28,9 +28,6 @@
 [submodule "irssi/irssi-colors-solarized"]
 	path = irssi/irssi-colors-solarized
 	url = git://github.com/huyz/irssi-colors-solarized.git
-[submodule "zsh/hnas-scripts"]
-	path = zsh/hnas-scripts
-	url = http://rwilliams@hal.dev.bluearc.com/repos/users/rwilliams/zsh-scripts
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/Vundle.vim
 	url = https://github.com/gmarik/vundle.git
