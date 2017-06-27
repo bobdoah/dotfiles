@@ -206,3 +206,9 @@ zsh/histfile
 " vim bundles, except vundle submodule
 vim/bundle
 !vim/bundle/vundle
+
+" config for apps
+config/Pinta
+config/gtk-2.0
+config/inkscape
+config/mono.addins

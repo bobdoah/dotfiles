@@ -81,8 +81,12 @@ zsh-mime-setup
 alias reload="source $HOME/.zshrc"
 
 # Colourful ls
-eval $(dircolors ~/.dircolors/dircolors-solarized/dircolors.ansi-dark)
-alias ls="ls --color"
+if whence dircolors > /dev/null; then
+    eval $(dircolors ~/.dircolors/dircolors-solarized/dircolors.ansi-dark)
+    alias ls="ls --color"
+else
+    export CLICOLOR=1
+fi
 
 # Set display
 PID=$(pgrep -n -u $USER XWin)

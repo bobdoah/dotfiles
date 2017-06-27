@@ -2,37 +2,39 @@
 filetype off
 if has('win32') || has('win64')
     " Windows vundle
-    set rtp+=~/vimfiles/bundle/vundle/
-    call vundle#rc('$HOME/vimfiles/bundle/')
+    set rtp+=~/vimfiles/bundle/Vundle.vim
+    call vundle#begin('$HOME/vimfiles/bundle/')
 else 
     " Normal quickstart instructions
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 endif
 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 "plugin bundles:
-Bundle 'mileszs/ack.vim'
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-surround'
-Bundle 'ludovicchabant/vim-lawrencium'
-Bundle 'bling/vim-bufferline'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
-Bundle "honza/vim-snippets"
-Bundle 'tpope/vim-abolish'
-Bundle 'jlfwong/vim-mercenary'
-Bundle 'edkolev/tmuxline.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'ludovicchabant/vim-lawrencium'
+Plugin 'bling/vim-bufferline'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-abolish'
+Plugin 'jlfwong/vim-mercenary'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()
 
 " Map j and k to move down/up a single row each time
 nmap j gj
@@ -66,6 +68,7 @@ endif
 
 " Syntastic settings
 let g:syntastic_python_pylint_args=" -f parseable -r n -i y --errors-only"
+let g:syntastic_rst_checkers = ['sphinx']
  
 " Makefiles have to use tabs
 autocmd FileType make set noexpandtab shiftwidth=8
@@ -193,6 +196,7 @@ let g:tmuxline_theme = {
             \ }
 
 autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expandtab
+autocmd FileType robot set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 
 let hnas_plugins = expand("~/work/misc/tools/vim/load_plugins.vim")
 if filereadable(hnas_plugins)
@@ -201,3 +205,6 @@ if filereadable(hnas_plugins)
     let g:checkintool_bk_pre_commit_check_allow_gui="yes"
     let g:checkintool_confirm_discards="yes"
 endif
+
+" Setup the camel case motion mapping.
+call camelcasemotion#CreateMotionMappings('<leader>')

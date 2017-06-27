@@ -18,3 +18,8 @@ if [[ -f $HNAS_ENV ]]; then
     source $HNAS_ENV
     PATH=$HNAS_SCRIPTS_DIR/scripts:$PATH
 fi
+
+MAC_PYTHON3_BIN=~/Library/Python/3.5/bin
+if [[ -d $MAC_PYTHON3_BIN ]]; then
+    PATH=$MAC_PYTHON3_BIN:$PATH
+fi
