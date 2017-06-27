@@ -45,12 +45,12 @@ export PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%}:%{
 export RPROMPT=''
 
 # Update fpath to include home directory
-if [[ $(id -u ) != $(id -u root 2>>/dev/null) ]]; then
+if [[ $(id -u ) != 0 ]]; then
     fpath=($HOME/.zsh/completions/ $fpath)
 fi
 
 # Include all the HNAS scripts, if the directory exists and we aren't root
-if [[ $(id -u ) != $(id -u root 2>/dev/null) && -f $HNAS_ENV ]]; then
+if [[ $(id -u ) != 0 && -f $HNAS_ENV ]]; then
    fpath=($HNAS_SCRIPTS_DIR/scripts $HNAS_SCRIPTS_DIR/completions $fpath)
    autoload -U $HNAS_SCRIPTS_DIR/scripts/*(:t)
 fi
@@ -68,7 +68,7 @@ source $HOME/.zsh/private 2>/dev/null
 
 # Load virtualenvwrapper
 VIRTUAL_ENV_WRAPPER=/usr/local/bin/virtualenvwrapper.sh
-if [[ $(id -u) != $(id -u root 2>/dev/null)  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
+if [[ $(id -u) != 0  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
     source $VIRTUAL_ENV_WRAPPER
 fi
 
