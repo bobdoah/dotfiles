@@ -29,7 +29,7 @@
 	path = irssi/irssi-colors-solarized
 	url = git://github.com/huyz/irssi-colors-solarized.git
 [submodule "vim/bundle/vundle"]
-	path = vim/bundle/vundle
+	path = vim/bundle/Vundle.vim
 	url = https://github.com/gmarik/vundle.git
 [submodule "dircolors/dircolors-solarized"]
 	path = dircolors/dircolors-solarized
