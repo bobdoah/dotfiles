@@ -33,6 +33,7 @@ Bundle 'jlfwong/vim-mercenary'
 Bundle 'edkolev/tmuxline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Bundle 'rdolgushin/groovy.vim'
 
 " Map j and k to move down/up a single row each time
 nmap j gj
