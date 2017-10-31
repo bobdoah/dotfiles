@@ -1,36 +1,9 @@
-[submodule "vim/bundle/vim-pathogen"]
-	path = vim/bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/camel-case-motion"]
-	path = vim/bundle/camel-case-motion
-	url = https://github.com/bkad/CamelCaseMotion.git
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/tagbar"]
-	path = vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/zoom-window"]
-	path = vim/bundle/zoom-window
-	url = https://github.com/vim-scripts/ZoomWin.git
-[submodule "vim/bundle/ack-vim"]
-	path = vim/bundle/ack-vim
-	url = https://github.com/mileszs/ack.vim.git
 [submodule "tmux/tmux-colors-solarized"]
 	path = tmux/tmux-colors-solarized
 	url = https://github.com/seebi/tmux-colors-solarized.git
 [submodule "irssi/irssi-colors-solarized"]
 	path = irssi/irssi-colors-solarized
 	url = git://github.com/huyz/irssi-colors-solarized.git
-[submodule "vim/bundle/vundle"]
-	path = vim/bundle/Vundle.vim
-	url = https://github.com/gmarik/vundle.git
 [submodule "dircolors/dircolors-solarized"]
 	path = dircolors/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
