@@ -6,12 +6,7 @@ Bobdoah's Dotfiles
     cd ~
     git clone git@github.com:bobdoah/dotfiles.git
 
-2. Update the submodules
-------------------------
-    cd dotfiles
-    git submodule update --init
-
-3. Create the symlinks
+2. Create the symlinks
 ----------------------
     ln -s ~/dotfiles/ackrc ~/.ackrc
     ln -s ~/dotfiles/vim ~/.vim
@@ -25,7 +20,7 @@ Bobdoah's Dotfiles
     ln -s ~/dotfiles/dircolors ~/.dircolors
     ln -s ~/dotfiles/irssi ~/.irssi
 
-4. Install Vundle plugins
+3. Install Vundle plugins
 -------------------------
 
     vim +PluginInstall +qall
