@@ -1,0 +1,8 @@
+username = Rob Williams <robertwilliams1985@gmail.com>
+[diff]
+git=1
+[extensions]
+fetch=
+strip=
+[alias]
+ocmmit = commit
