@@ -34,6 +34,7 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Bundle 'rdolgushin/groovy.vim'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 call vundle#end()
 
