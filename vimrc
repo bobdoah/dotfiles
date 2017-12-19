@@ -39,6 +39,9 @@ Plugin 'tmux-plugins/vim-tmux'
 
 call vundle#end()
 
+" Map leader key to comma:
+let mapleader = ","
+
 " Map j and k to move down/up a single row each time
 nmap j gj
 nmap k gk
@@ -140,6 +143,9 @@ set wildmode=list:longest,full
 
 " Disable the modeline (often a security risk)
 set nomodeline
+
+" Bind a key to let me reselect the text that was just pasted
+nnoremap <leader>v V`]
 
 " Bind a key for ack'ing
 nnoremap <leader>a :Ack
