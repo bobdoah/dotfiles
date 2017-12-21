@@ -51,6 +51,9 @@ nmap k gk
 set ignorecase
 set smartcase
 
+" Make search global by default
+set gdefault
+
 " Tab settings
 set shiftwidth=4
 set shiftround
