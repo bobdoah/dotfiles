@@ -1,0 +1,28 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- clean: 
+    ~/.config:
+      force: true
+- shell:
+  - [mkdir -p ~/.config, Creating .config directory]
+
+- link:
+  ~/.ackrc:
+  ~/.dircolors:
+  ~/.dotfiles: ''
+  ~/.hgrc:
+  ~/.irssi:
+  ~/.tmux:
+  ~/.tmux.conf:
+  ~/.vim:
+  ~/.vimrc:
+  ~/.zsh:
+  ~/.zshenv:
+  ~/.zshrc:
+
+- shell:
+  - [vim +PluginInstall +qall, Installing VIM plugins]
