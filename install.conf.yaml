@@ -11,18 +11,18 @@
   - [mkdir -p ~/.config, Creating .config directory]
 
 - link:
-  ~/.ackrc:
-  ~/.dircolors:
-  ~/.dotfiles: ''
-  ~/.hgrc:
-  ~/.irssi:
-  ~/.tmux:
-  ~/.tmux.conf:
-  ~/.vim:
-  ~/.vimrc:
-  ~/.zsh:
-  ~/.zshenv:
-  ~/.zshrc:
+    ~/.ackrc:
+    ~/.dircolors: 
+    ~/.dotfiles: ''
+    ~/.hgrc:
+    ~/.irssi:
+    ~/.tmux:
+    ~/.tmux.conf:
+    ~/.vim:
+    ~/.vimrc:
+    ~/.zsh:
+    ~/.zshenv:
+    ~/.zshrc:
 
 - shell:
   - [vim +PluginInstall +qall, Installing VIM plugins]
