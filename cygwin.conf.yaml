@@ -1,3 +1,6 @@
 - link: 
     ~/.gvimrc:
     ~/.minttyrc:
+    ~/.bashrc: 
+     path: cygwin/bashrc
+     force: true
