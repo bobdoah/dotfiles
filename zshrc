@@ -91,7 +91,7 @@ fi
 # Set display
 PID=$(pgrep -n -u $USER XWin)
 if [ -n $PID ]; then
-    export DISPLAY=$(pgrep -l -f XWin | ruby -pe "gsub(/.+(\d*:\d*(\.\d*)?).+/, '\1')" | head -n 1)
+    export DISPLAY=$(pid=$(pgrep XWin); cat /proc/$pid/environ | tr '\0' '\n' | grep '^DISPLAY=' | cut -d '=' -f 2)
 fi
 
 
