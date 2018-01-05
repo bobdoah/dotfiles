@@ -94,4 +94,6 @@ if [ -n $PID ]; then
     export DISPLAY=$(pgrep -l -f XWin | ruby -pe "gsub(/.+(\d*:\d*(\.\d*)?).+/, '\1')" | head -n 1)
 fi
 
-
+if which p4 > /dev/null; then
+    export P4CONFIG=.p4rc
+fi
