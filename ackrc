@@ -1,2 +1,3 @@
 --type-set=docker:is:Dockerfile
 --type-set=salt:is:sls
+--ignore-dir=.tox
