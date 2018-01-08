@@ -11,12 +11,9 @@ PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 PATH=$HOME/bin:$HOME/.local/bin:$PATH
 PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 
-# HNAS scripts directory location
-HNAS_SCRIPTS_DIR=$HOME/.zsh/hnas-scripts 
-HNAS_ENV=$HNAS_SCRIPTS_DIR/env
-if [[ -f $HNAS_ENV ]]; then
-    source $HNAS_ENV
-    PATH=$HNAS_SCRIPTS_DIR/scripts:$PATH
+P4V_BIN=/opt/p4v/bin 
+if [[ -d $P4V_BIN ]]; then
+    PATH=$P4V_BIN:$PATH
 fi
 
 MAC_PYTHON3_BIN=~/Library/Python/3.5/bin
