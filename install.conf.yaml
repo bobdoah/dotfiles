@@ -25,4 +25,6 @@
     ~/.zshrc:
 
 - shell:
-  - [vim +PluginInstall +qall, Installing VIM plugins]
+  - [echo | echo | vim +PluginInstall +PluginUpdate +qall &>/dev/null, Installing VIM plugins]
+  - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
+  - [~/.tmux/plugins/tpm/bin/update_plugins all, Updating tmux plugins]
