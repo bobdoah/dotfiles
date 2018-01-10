@@ -36,6 +36,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Bundle 'rdolgushin/groovy.vim'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'nfvs/vim-perforce'
 
 call vundle#end()
 
@@ -220,3 +221,6 @@ endif
 
 " Setup the camel case motion mapping.
 call camelcasemotion#CreateMotionMappings('<leader>')
+
+" Prompt to checkout the file in Perforce when editing a read-only file
+let g:perforce_open_on_change = 1
