@@ -49,25 +49,23 @@ if [[ $(id -u ) != 0 ]]; then
     fpath=($HOME/.zsh/completions/ $fpath)
 fi
 
-# Include all the HNAS scripts, if the directory exists and we aren't root
-if [[ $(id -u ) != 0 && -f $HNAS_ENV ]]; then
-   fpath=($HNAS_SCRIPTS_DIR/scripts $HNAS_SCRIPTS_DIR/completions $fpath)
-   autoload -U $HNAS_SCRIPTS_DIR/scripts/*(:t)
-fi
-
 # Use completion
 autoload -U compinit && compinit
 
 # Show completion menu when number of options is at least two
 zstyle ':completion:*' menu select=2
 
-alias ssc="ssc -u supervisor -P lGseBUMM1NpVbI5vyINzUg="
-
 source $HOME/.zsh/private 2>/dev/null
 
+PYTHON3=$(which python3)
+
+if [[ -f $PYTHON3 ]]; then ; 
+    alias python=$PYTHON3
+    export VIRTUALENVWRAPPER_PYTHON=$PYTHON3
+fi
 
 # Load virtualenvwrapper
-VIRTUAL_ENV_WRAPPER=/usr/local/bin/virtualenvwrapper.sh
+VIRTUAL_ENV_WRAPPER=$(which virtualenvwrapper.sh)
 if [[ $(id -u) != 0  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
     source $VIRTUAL_ENV_WRAPPER
 fi
@@ -97,3 +95,9 @@ fi
 if which p4 > /dev/null; then
     export P4CONFIG=.p4rc
 fi
+
+PATH="/home/rwilliams/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/rwilliams/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/rwilliams/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/rwilliams/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/rwilliams/perl5"; export PERL_MM_OPT;
