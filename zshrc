@@ -57,15 +57,13 @@ zstyle ':completion:*' menu select=2
 
 source $HOME/.zsh/private 2>/dev/null
 
-PYTHON3=$(which python3)
-
-if [[ -f $PYTHON3 ]]; then ; 
+if which python3 >/dev/null 2>&1; then ; 
     alias python=$PYTHON3
     export VIRTUALENVWRAPPER_PYTHON=$PYTHON3
 fi
 
 # Load virtualenvwrapper
-VIRTUAL_ENV_WRAPPER=$(which virtualenvwrapper.sh)
+VIRTUAL_ENV_WRAPPER=$(which virtualenvwrapper.sh >dev/null 2&>1;)
 if [[ $(id -u) != 0  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
     source $VIRTUAL_ENV_WRAPPER
 fi
