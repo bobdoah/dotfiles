@@ -63,7 +63,7 @@ if which python3 >/dev/null 2>&1; then ;
 fi
 
 # Load virtualenvwrapper
-VIRTUAL_ENV_WRAPPER=$(which virtualenvwrapper.sh >dev/null 2&>1;)
+VIRTUAL_ENV_WRAPPER=$(which virtualenvwrapper.sh >/dev/null 2&>1;)
 if [[ $(id -u) != 0  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
     source $VIRTUAL_ENV_WRAPPER
 fi
@@ -77,7 +77,7 @@ zsh-mime-setup
 alias reload="source $HOME/.zshrc"
 
 # Colourful ls
-if whence dircolors > /dev/null; then
+if whence dircolors > /dev/null 2>&1; then
     eval $(dircolors ~/.dircolors/dircolors-solarized/dircolors.ansi-dark)
     alias ls="ls --color"
 else
