@@ -205,7 +205,9 @@ zsh/histfile
 
 " vim bundles, except vundle submodule
 vim/bundle
-!vim/bundle/Vundle.vim
+
+" vim plug
+vim/autoload/plug.vim
 
 " config for apps
 config/Pinta

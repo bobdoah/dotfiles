@@ -1,44 +1,39 @@
-" add vundle to the runtime path
-filetype off
-if has('win32') || has('win64')
-    " Windows vundle
-    set rtp+=~/vimfiles/bundle/Vundle.vim
-    call vundle#begin('$HOME/vimfiles/bundle/')
-else 
-    " Normal quickstart instructions
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+"install vim-plug
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin('~/.vim/bundle')
 "plugin bundles:
-Plugin 'mileszs/ack.vim'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/ZoomWin'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'ludovicchabant/vim-lawrencium'
-Plugin 'bling/vim-bufferline'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-abolish'
-Plugin 'jlfwong/vim-mercenary'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Bundle 'rdolgushin/groovy.vim'
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-Plugin 'tmux-plugins/vim-tmux'
-Plugin 'nfvs/vim-perforce'
-
-call vundle#end()
+Plug 'mileszs/ack.vim'
+Plug 'bkad/CamelCaseMotion'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/ZoomWin'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'ludovicchabant/vim-lawrencium'
+Plug 'bling/vim-bufferline'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-abolish'
+Plug 'jlfwong/vim-mercenary'
+Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'rdolgushin/groovy.vim'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'nfvs/vim-perforce'
+Plug 'stevearc/vim-arduino'
+call plug#end()
 
 " Map leader key to comma:
 let mapleader = ","
@@ -67,14 +62,6 @@ set nu
 
 " Viminfo file settings (saved across sessions)
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
-
-" Enabled filetype detection and indentation on type-basis
-filetype plugin indent on
-
-" Enabled syntax highlighing if the terminal supports more than two colours
-if has('syntax') && (&t_Co > 2)
-   syntax on
-endif
 
 " Syntastic settings
 let g:syntastic_python_pylint_args=" -f parseable -r n -i y --errors-only"
@@ -134,7 +121,7 @@ endif
 
 let g:solarized_termtrans = 1
 let g:solarized_termcolors = 16
-colorscheme solarized
+silent! colorscheme solarized
 
 " Tagbar toggle key
 nmap <F8> :TagbarToggle<CR>
