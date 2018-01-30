@@ -216,4 +216,6 @@ config/inkscape
 config/mono.addins
 
 " Tmux plugsin
-tmux/plugins
+!tmux/plugins
+tmux/plugins/*
+!tmux/plugins/tpm
