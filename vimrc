@@ -199,7 +199,7 @@ autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expan
 autocmd FileType robot set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 
 " Setup the camel case motion mapping.
-call camelcasemotion#CreateMotionMappings('<leader>')
+silent! call camelcasemotion#CreateMotionMappings('<leader>')
 
 " Prompt to checkout the file in Perforce when editing a read-only file
 let g:perforce_open_on_change = 1
