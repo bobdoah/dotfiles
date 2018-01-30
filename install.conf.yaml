@@ -23,6 +23,7 @@
     ~/.zsh:
     ~/.zshenv:
     ~/.zshrc:
+    ~/.zgen:
 
 - shell:
   - [vim +PlugInstall +qall &>/dev/null, Installing VIM plugins]

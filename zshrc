@@ -1,3 +1,21 @@
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init script doesn't exist
+if ! zgen saved; then 
+    echo "Creating a zgen save"
+
+    zgen oh-my-zsh
+
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh plugins/terraform
+    
+    zgen load zsh-users/zsh-completions src
+
+    zgen save
+fi
+
 # Use emacs mode (same as bash default)
 bindkey -e 
 
