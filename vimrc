@@ -69,6 +69,7 @@ let g:syntastic_rst_checkers = ['sphinx']
  
 " Makefiles have to use tabs
 autocmd FileType make set noexpandtab shiftwidth=8
+
  
 " Toggle for paste mode
 set pastetoggle=<F5>
@@ -197,6 +198,8 @@ let g:tmuxline_theme = {
 
 autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expandtab
 autocmd FileType robot set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+" XML is also using tabs
+autocmd FileType xml set noexpandtab tabstop=8 shiftwidth=8 softtabstop=0
 
 " Setup the camel case motion mapping.
 silent! call camelcasemotion#CreateMotionMappings('<leader>')
