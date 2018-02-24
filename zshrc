@@ -75,7 +75,8 @@ zstyle ':completion:*' menu select=2
 
 source $HOME/.zsh/private 2>/dev/null
 
-if which python3 >/dev/null 2>&1; then ; 
+PYTHON3=$(whence python3 2>/dev/null)
+if [[ $PYTHON3 ]] ; then 
     alias python=$PYTHON3
     export VIRTUALENVWRAPPER_PYTHON=$PYTHON3
 fi
