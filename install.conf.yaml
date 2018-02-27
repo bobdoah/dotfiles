@@ -12,7 +12,7 @@
 
 - link:
     ~/.ackrc:
-    ~/.dircolors: 
+    ~/.dircolors: dircolors/dircolors-solarized/dircolors.ansi-dark
     ~/.dotfiles: ''
     ~/.hgrc:
     ~/.irssi:

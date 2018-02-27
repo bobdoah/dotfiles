@@ -76,7 +76,7 @@ zstyle ':completion:*' menu select=2
 source $HOME/.zsh/private 2>/dev/null
 
 PYTHON3=$(whence python3 2>/dev/null)
-if [[ $PYTHON3 ]] ; then 
+if [[ ! -z $PYTHON3 ]] ; then 
     alias python=$PYTHON3
     export VIRTUALENVWRAPPER_PYTHON=$PYTHON3
 fi
@@ -94,14 +94,6 @@ zsh-mime-setup
 
 # Add an alias to quickly reload zshrc
 alias reload="source $HOME/.zshrc"
-
-# Colourful ls
-if whence dircolors > /dev/null 2>&1; then
-    eval $(dircolors ~/.dircolors/dircolors-solarized/dircolors.ansi-dark)
-    alias ls="ls --color"
-else
-    export CLICOLOR=1
-fi
 
 # Set display
 PID=$(pgrep -n -u $USER XWin)
