@@ -1,0 +1,7 @@
+shlf $(change) = describe -sS $(change) 
+chng = changes -u $(P4USER)
+pend = changelist -u $(P4USER) -s pending
+shlvd = changes -s shelved -u $(P4USER)
+mv = move
+rm = delete
+cp = copy

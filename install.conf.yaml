@@ -16,6 +16,7 @@
     ~/.dotfiles: ''
     ~/.hgrc:
     ~/.irssi:
+    ~/.p4aliases:
     ~/.tmux:
     ~/.tmux.conf:
     ~/.vim:
