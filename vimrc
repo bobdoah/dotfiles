@@ -33,6 +33,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'nfvs/vim-perforce'
 Plug 'stevearc/vim-arduino'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 " Map leader key to comma:
@@ -208,3 +209,6 @@ silent! call camelcasemotion#CreateMotionMappings('<leader>')
 let g:perforce_open_on_change = 1
 
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
