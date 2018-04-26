@@ -20,3 +20,11 @@ MAC_PYTHON3_BIN=~/Library/Python/3.5/bin
 if [[ -d $MAC_PYTHON3_BIN ]]; then
     PATH=$MAC_PYTHON3_BIN:$PATH
 fi
+
+alias p3=python3
+alias p=python2
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+# Don't paginate less than a page.
+export LESS="-F -X $LESS"
