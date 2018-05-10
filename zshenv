@@ -27,4 +27,4 @@ alias p=python2
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # Don't paginate less than a page.
-export LESS="-F -X $LESS"
+export LESS="-F -X -R $LESS"
