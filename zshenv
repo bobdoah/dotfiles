@@ -20,3 +20,5 @@ MAC_PYTHON3_BIN=~/Library/Python/3.5/bin
 if [[ -d $MAC_PYTHON3_BIN ]]; then
     PATH=$MAC_PYTHON3_BIN:$PATH
 fi
+
+export P4USER=rwilliams
