@@ -33,6 +33,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'nfvs/vim-perforce'
 Plug 'stevearc/vim-arduino'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 " Map leader key to comma:
@@ -142,6 +143,9 @@ nnoremap <leader>v V`]
 " Bind a key for ack'ing
 nnoremap <leader>a :Ack
 
+" Bind a key to P4edit a file.
+nnoremap <leader>p :P4edit<CR>
+
 " Not vi compatible mode
 set nocompatible
 
@@ -204,7 +208,7 @@ autocmd FileType xml set noexpandtab tabstop=8 shiftwidth=8 softtabstop=0
 " Setup the camel case motion mapping.
 silent! call camelcasemotion#CreateMotionMappings('<leader>')
 
-" Prompt to checkout the file in Perforce when editing a read-only file
-let g:perforce_open_on_change = 1
-
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
