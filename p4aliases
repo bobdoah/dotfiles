@@ -6,3 +6,4 @@ tip = changelists -s submitted -c $(P4CLIENT) -m 1
 mv = move
 rm = delete
 cp = copy
+l = login -s

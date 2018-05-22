@@ -10,6 +10,7 @@ PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 # Home directory paths 
 PATH=$HOME/bin:$HOME/.local/bin:$PATH
 PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
+PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
 
 P4V_BIN=/opt/p4v/bin 
 if [[ -d $P4V_BIN ]]; then

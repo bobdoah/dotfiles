@@ -65,7 +65,7 @@ set nu
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 
 " Syntastic settings
-let g:syntastic_python_pylint_args=" -f parseable -r n -i y --errors-only"
+let g:syntastic_python_pylint_args=" -f parseable -r n --errors-only"
 let g:syntastic_rst_checkers = ['sphinx']
  
 " Makefiles have to use tabs
