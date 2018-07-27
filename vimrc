@@ -1,5 +1,3 @@
-"install vim-plug
-
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -251,7 +249,7 @@ let g:terraform_registry_module_completion = 0
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-i" Ctrl-Space for completions. Heck Yeah!
+" Ctrl-Space for completions. Heck Yeah!
 inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\<lt>C-n>" :
             \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
