@@ -1,4 +1,5 @@
-### /Users/Bob/.gitignore-boilerplates/Python.gitignore
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ? "\<lt>C-n>" : "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" . "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" . "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
 
 *.py[cod]
 
@@ -208,6 +209,7 @@ vim/bundle
 
 " vim plug
 vim/autoload/plug.vim
+vim/autoload/plug.vim.old
 
 " config for apps
 config/Pinta

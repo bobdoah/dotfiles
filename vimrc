@@ -10,7 +10,7 @@ call plug#begin('~/.vim/bundle')
 "plugin bundles:
 Plug 'mileszs/ack.vim'
 Plug 'bkad/CamelCaseMotion'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
@@ -34,6 +34,8 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'nfvs/vim-perforce'
 Plug 'stevearc/vim-arduino'
 Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+
 call plug#end()
 
 " Map leader key to comma:
@@ -67,6 +69,10 @@ set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 " Syntastic settings
 let g:syntastic_python_pylint_args=" -f parseable -r n --errors-only"
 let g:syntastic_rst_checkers = ['sphinx']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
  
 " Makefiles have to use tabs
 autocmd FileType make set noexpandtab shiftwidth=8
@@ -211,7 +217,7 @@ silent! call camelcasemotion#CreateMotionMappings('<leader>')
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
 let g:terraform_align=1
-let g:terraform_fmt_on_save=1
+let g:terraform_fmt_on_save=0
 
 
 
@@ -224,3 +230,31 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 map <leader>m :NERDTreeToggle<CR>
+
+" (Optional)Remove Info(Preview) window
+set completeopt-=preview
+
+" (Optional)Hide Info(Preview) window after completions
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" (Optional) Enable terraform plan to be include in filter
+let g:syntastic_terraform_tffilter_plan = 0
+
+" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+let g:terraform_completion_keys = 1
+
+" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+let g:terraform_registry_module_completion = 0
+
+" Enable omnicompletion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+i" Ctrl-Space for completions. Heck Yeah!
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+            \ "\<lt>C-n>" :
+            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
