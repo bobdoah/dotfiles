@@ -2,5 +2,6 @@
 --type-set=salt:is:sls
 --type-set=pom:is:pom.xml
 --type-set=terraform:ext:tf
+--type-set=terraform:ext:tpl
 --ignore-dir=.tox
 --ignore-dir=3rdparty
