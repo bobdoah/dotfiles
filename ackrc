@@ -1,7 +1,7 @@
 --type-set=docker:is:Dockerfile
 --type-set=salt:is:sls
 --type-set=pom:is:pom.xml
---type-set=terraform:ext:tf
---type-set=terraform:ext:tpl
+--type-set=terraform:ext:tf,tpl
+--type-set=properties:ext:properties
 --ignore-dir=.tox
 --ignore-dir=3rdparty
