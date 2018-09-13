@@ -1,0 +1,4 @@
+#autoload
+if (( ${+1} )); then
+    cat <(p4 describe -S $1)  <(p4 describe -s $1 | grep add | cut -d ' ' -f 2 | cut -d '#' -f 1 |  xargs -d '\n' -i p4 print {}@=$1) | less
+fi

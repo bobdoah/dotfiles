@@ -1,3 +1,4 @@
+ZSH_CONFIG_DIR=$HOME/.zsh
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -20,7 +21,7 @@ fi
 # Use emacs mode (same as bash default)
 bindkey -e 
 
-source $HOME/.zsh/zkbd-terminfo
+source $ZSH_CONFIG_DIR/zkbd-terminfo
 # Line editing keys
 [[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
 [[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
@@ -50,7 +51,7 @@ zle -N zle-line-finish
 # Save history
 export HISTSIZE=1000
 export SAVEHIST=1000
-export HISTFILE=$HOME/.zsh/histfile
+export HISTFILE=$ZSH_CONFIG_DIR/histfile
 
 # backwards TAB
 bindkey '^[[Z' reverse-menu-complete
@@ -65,8 +66,10 @@ export RPROMPT=''
 
 # Update fpath to include home directory
 if [[ $(id -u ) != 0 ]]; then
-    fpath=($HOME/.zsh/completions/ $fpath)
+    fpath=($ZSH_CONFIG_DIR/completions/ $fpath)
+    fpath=($ZSH_CONFIG_DIR/functions/ $fpath)
 fi
+autoload -U $ZSH_CONFIG_DIR/functions/*(:t)
 
 # Use completion
 autoload -U compinit && compinit
@@ -74,7 +77,7 @@ autoload -U compinit && compinit
 # Show completion menu when number of options is at least two
 zstyle ':completion:*' menu select=2
 
-source $HOME/.zsh/private 2>/dev/null
+source $ZSH_CONFIG_DIR/private 2>/dev/null
 
 PYTHON3=$(whence python3 2>/dev/null)
 if [[ ! -z $PYTHON3 ]] ; then 
