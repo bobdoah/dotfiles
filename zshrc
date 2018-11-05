@@ -11,6 +11,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh plugins/terraform
+    zgen oh-my-zsh plugins/chucknorris
     
     zgen load zsh-users/zsh-completions src
     zgen load zachwhaley/bp4o src
