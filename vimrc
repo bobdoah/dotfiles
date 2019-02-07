@@ -41,6 +41,8 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
+Plug 'vim-scripts/restore_view.vim'
+Plug 'vim-scripts/delview'
 
 call plug#end()
 
@@ -123,10 +125,6 @@ endfunc
 " Map the numbering mode toggle to a key
 nnoremap <silent><F3> :call g:ToggleNuMode()<CR>
  
-" Save folds between sessions
-au BufWinLeave * silent! mkview
-au BufWinEnter * silent! loadview
-
 " Solarized settings
 if has('gui_running')
     set background=light
@@ -275,3 +273,6 @@ let g:syntastic_mode_map = {
 let g:prettier#config#config_precedence = 'file-override'
 let g:vue_disable_pre_processors=1
 autocmd FileType vue syntax sync fromstart
+
+set viewoptions=cursor,folds,slash,unix
+let g:skipview_files = ['*\.vim']
