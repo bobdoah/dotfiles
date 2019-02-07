@@ -33,6 +33,11 @@ Plug 'nfvs/vim-perforce'
 Plug 'stevearc/vim-arduino'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
+" post install (yarn install | npm install) then load plugin only for editing
+" supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 call plug#end()
 
@@ -263,3 +268,5 @@ autocmd FileType python set omnifunc=python3complete#Complete
 let g:syntastic_mode_map = {
 	\ "mode": "active",
 	\ "passive_filetypes": ["java"] }
+
+let g:prettier#config#config_precedence = 'file-override'
