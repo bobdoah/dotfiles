@@ -39,6 +39,9 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
+Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
+
 call plug#end()
 
 " Map leader key to comma:
@@ -270,3 +273,5 @@ let g:syntastic_mode_map = {
 	\ "passive_filetypes": ["java"] }
 
 let g:prettier#config#config_precedence = 'file-override'
+let g:vue_disable_pre_processors=1
+autocmd FileType vue syntax sync fromstart
