@@ -39,3 +39,14 @@ JD_GUI=/opt/jd-gui/jd-gui-1.4.0.jar
 if [[ -f $JD_GUI ]]; then
     alias jd="java -jar $JD_GUI"
 fi
+
+M2_HOME=/opt/maven
+if [[ -d $M2_HOME ]]; then
+    export M2_HOME
+    export PATH=${M2_HOME}/bin:${PATH}
+fi
+
+JENKINS_TOKEN_FILE=$HOME/.jenkins_token
+if [[ -f $JENKINS_TOKEN_FILE ]]; then
+    export JENKINS_TOKEN=$(cat $JENKINS_TOKEN_FILE)
+fi 
