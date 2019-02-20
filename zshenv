@@ -39,3 +39,7 @@ JD_GUI=/opt/jd-gui/jd-gui-1.4.0.jar
 if [[ -f $JD_GUI ]]; then
     alias jd="java -jar $JD_GUI"
 fi
+
+if grep -q Microsoft /proc/version; then
+    export DISPLAY=localhost:0.0
+fi
