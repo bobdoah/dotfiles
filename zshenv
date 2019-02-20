@@ -50,3 +50,7 @@ JENKINS_TOKEN_FILE=$HOME/.jenkins_token
 if [[ -f $JENKINS_TOKEN_FILE ]]; then
     export JENKINS_TOKEN=$(cat $JENKINS_TOKEN_FILE)
 fi 
+
+if grep -q Microsoft /proc/version; then
+    export DISPLAY=localhost:0.0
+fi
