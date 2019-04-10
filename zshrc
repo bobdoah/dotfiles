@@ -122,7 +122,6 @@ PERL_LOCAL_LIB_ROOT="/home/rwilliams/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_L
 PERL_MB_OPT="--install_base \"/home/rwilliams/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/rwilliams/perl5"; export PERL_MM_OPT;
 
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/bob/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bob/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -131,3 +130,11 @@ if [ -f '/Users/bob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bob/g
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
+P4_BIN=/cygdrive/c/Program\ Files/Perforce/p4.exe 
+if [[ "$OSTYPE" == "cygwin" && -f  $P4_BIN ]]; then
+    function p4() {
+        export PWD=`cygpath -wa .`
+        $P4_BIN $@
+    }
+fi
