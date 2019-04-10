@@ -86,6 +86,12 @@ if [[ ! -z $PYTHON3 ]] ; then
     export VIRTUALENVWRAPPER_PYTHON=$PYTHON3
 fi
 
+PYTHON37=$(whence python3.7 2>/dev/null)
+if [[ ! -z $PYTHON37 ]] ; then 
+    alias python=$PYTHON37
+    export VIRTUALENVWRAPPER_PYTHON=$PYTHON37
+fi
+
 # Load virtualenvwrapper
 VIRTUAL_ENV_WRAPPER=$(which virtualenvwrapper.sh >/dev/null 2>&1;)
 if [[ $(id -u) != 0  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
