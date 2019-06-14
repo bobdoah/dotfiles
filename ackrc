@@ -3,5 +3,6 @@
 --type-set=pom:is:pom.xml
 --type-set=terraform:ext:tf,tpl
 --type-set=properties:ext:properties
+--type-set=Jenkinsfile:is:Jenkinsfile
 --ignore-dir=.tox
 --ignore-dir=3rdparty
