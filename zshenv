@@ -5,6 +5,7 @@ if [[ $OSTYPE == 'cygwin' ]]; then
     PATH=/usr/bin:$PATH
 fi
 PATH=/usr/local/bin:$PATH
+PATH=/snap/bin:$PATH
 # Superuser locations
 PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 # Home directory paths 
