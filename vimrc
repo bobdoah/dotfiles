@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'modille/groovy.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'nfvs/vim-perforce'
 Plug 'stevearc/vim-arduino'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
@@ -36,7 +37,6 @@ Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'vim-scripts/delview'
-Plug 'ngemily/vim-vp4'
 
 call plug#end()
 
