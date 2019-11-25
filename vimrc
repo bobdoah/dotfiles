@@ -270,3 +270,6 @@ autocmd FileType vue syntax sync fromstart
 
 set viewoptions=cursor,folds,slash,unix
 let g:skipview_files = ['*\.vim']
+
+let g:perforce_open_on_change = 1
+let g:perforce_auto_source_dirs = [$HOME . '/workspace']
