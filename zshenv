@@ -47,6 +47,11 @@ if [[ -d $M2_HOME ]]; then
     export PATH=${M2_HOME}/bin:${PATH}
 fi
 
+GO_BIN=/usr/local/go/bin
+if [[ -d $GO_BIN ]]; then
+    export PATH=${GO_BIN}:${PATH}
+fi
+
 JENKINS_TOKEN_FILE=$HOME/.jenkins_token
 if [[ -f $JENKINS_TOKEN_FILE ]]; then
     export JENKINS_TOKEN=$(cat $JENKINS_TOKEN_FILE)

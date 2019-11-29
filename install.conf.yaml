@@ -18,6 +18,7 @@
     ~/.hgrc:
     ~/.irssi:
     ~/.p4aliases:
+    ~/.tfswitch.toml:
     ~/.tmux:
     ~/.tmux.conf:
     ~/.vim:
@@ -30,3 +31,4 @@
 - shell:
   - [vim +PlugInstall +qall &>/dev/null, Installing VIM plugins]
   - ["if which tmux >/dev/null 2>&1; then ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all; fi", Installing tmux plugins]
+  - [ curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash -s -- -b $HOME/bin/, Installing tfswitch]

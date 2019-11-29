@@ -138,3 +138,16 @@ if [[ "$OSTYPE" == "cygwin" && -f  $P4_BIN ]]; then
         $P4_BIN $@
     }
 fi
+
+autoload -U add-zsh-hook
+
+load-tfswitch() {
+  local tfswitchrc_path=".tfswitchrc"
+
+  if [ -f "$tfswitchrc_path" ]; then
+    tfswitch
+  fi
+}
+
+add-zsh-hook chpwd load-tfswitch
+load-tfswitch
