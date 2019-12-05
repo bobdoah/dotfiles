@@ -151,3 +151,11 @@ load-tfswitch() {
 
 add-zsh-hook chpwd load-tfswitch
 load-tfswitch
+source <(kubectl completion zsh)
+load-kubeconfig(){
+    local kubeconfig_path="kube_config_cluster.yml"
+    if [ -f "$kubeconfig_path" ]; then
+        export KUBECONFIG=$kubeconfig_path
+    fi
+}
+add-zsh-hook chpwd load-kubeconfig
