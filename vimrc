@@ -16,18 +16,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/ZoomWin'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
-Plug 'ludovicchabant/vim-lawrencium'
 Plug 'bling/vim-bufferline'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-abolish'
-Plug 'jlfwong/vim-mercenary'
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rdolgushin/groovy.vim'
+Plug 'modille/groovy.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'nfvs/vim-perforce'
@@ -44,6 +38,8 @@ Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'vim-scripts/delview'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -241,7 +237,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-map <leader>m :NERDTreeToggle<CR>
+nmap <silent> <leader>m :NERDTreeToggle<CR>
+nmap <silent> <leader>y :NERDTreeFind<CR>
 
 " (Optional)Remove Info(Preview) window
 set completeopt-=preview
@@ -277,3 +274,21 @@ autocmd FileType vue syntax sync fromstart
 
 set viewoptions=cursor,folds,slash,unix
 let g:skipview_files = ['*\.vim']
+
+let g:perforce_open_on_change = 1
+let g:perforce_auto_source_dirs = [$HOME . '/workspace']
+
+nmap <silent> <leader>r :CtrlPBuffer<cr>
+let g:ctrlp_map='<leader>t'
+let g:ctrlp_dotfiles=1
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['pom.xml', '.p4rc', '.p4ignore']
+
+" CtrlP ignore patterns
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$'
+            \ }
+
+" search the nearest ancestor that contains .git, .hg, .svn
+let g:ctrlp_working_path_mode = 2
