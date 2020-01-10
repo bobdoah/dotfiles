@@ -8,7 +8,8 @@ call plug#begin('~/.vim/bundle')
 "plugin bundles:
 Plug 'mileszs/ack.vim'
 Plug 'bkad/CamelCaseMotion'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
@@ -31,7 +32,24 @@ Plug 'juliosueiras/vim-terraform-completion'
 " supported files
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript',
+    \ 'css',
+    \ 'less',
+    \ 'scss',
+    \ 'json',
+    \ 'graphql',
+    \ 'markdown',
+    \ 'vue',
+    \ 'lua',
+    \ 'yaml',
+    \ 'php',
+    \ 'python',
+    \ 'ruby',
+    \ 'html',
+    \ 'swift' ] }
 
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
@@ -71,13 +89,19 @@ set nu
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 
 " Syntastic settings
-let g:syntastic_python_pylint_args=" -f parseable -r n --errors-only"
-let g:syntastic_rst_checkers = ['sphinx']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_exec = 'tidy5'
+"let g:syntastic_python_pylint_args=" -f parseable -r n --errors-only"
+"let g:syntastic_rst_checkers = ['sphinx']
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_html_tidy_exec = 'tidy5'
+"let g:syntastic_mode_map = {
+"	\ "mode": "active",
+"	\ "passive_filetypes": ["java"] }
+" (Optional) Enable terraform plan to be include in filter
+"let g:syntastic_terraform_tffilter_plan = 0
+
  
 " Makefiles have to use tabs
 autocmd FileType make set noexpandtab shiftwidth=8
@@ -240,8 +264,6 @@ set completeopt-=preview
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" (Optional) Enable terraform plan to be include in filter
-let g:syntastic_terraform_tffilter_plan = 0
 
 " (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
 let g:terraform_completion_keys = 1
@@ -262,10 +284,6 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 imap <C-@> <C-Space>
 
 autocmd FileType python set omnifunc=python3complete#Complete
-
-let g:syntastic_mode_map = {
-	\ "mode": "active",
-	\ "passive_filetypes": ["java"] }
 
 let g:prettier#config#config_precedence = 'file-override'
 let g:vue_disable_pre_processors=1

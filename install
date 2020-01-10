@@ -12,7 +12,7 @@ cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 
-case "$(uname)" in 
+case "$(uname -a)" in 
     *cygwin*|*CYGWIN*)
         CONFIGS+=" cygwin.conf.yaml"
         ;;
@@ -20,6 +20,10 @@ case "$(uname)" in
         echo "darwin"
         CONFIGS+=" darwin.conf.yaml"
         ;;
+    Linux*Microsoft*)
+       echo "WSL"
+       CONFIGS+=" wsl.conf.yaml"
+       ;; 
 esac
 
 for config in ${CONFIGS} ${@}; do 

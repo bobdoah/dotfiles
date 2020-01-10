@@ -15,6 +15,7 @@ if ! zgen saved; then
     
     zgen load zsh-users/zsh-completions src
     zgen load zachwhaley/bp4o src
+    zgen load mafredri/zsh-async
 
     zgen save
 fi
@@ -128,8 +129,17 @@ if [ -f '/Users/bob/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bob/google-
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bob/google-cloud-sdk/completion.zsh.inc'; fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
+#export NVM_DIR="$HOME/.nvm"
+#function load_nvm() {
+#    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#}
+#
+## Initialize worker
+#async_init
+#async_start_worker nvm_worker -n
+#async_register_callback nvm_worker load_nvm
+#async_job nvm_worker sleep 0.1
 
 P4_BIN=/cygdrive/c/Program\ Files/Perforce/p4.exe 
 if [[ "$OSTYPE" == "cygwin" && -f  $P4_BIN ]]; then
@@ -151,7 +161,9 @@ load-tfswitch() {
 
 add-zsh-hook chpwd load-tfswitch
 load-tfswitch
-source <(kubectl completion zsh)
+if type "kubectl" > /dev/null; then
+    source <(kubectl completion zsh)
+fi
 load-kubeconfig(){
     local kubeconfig_path="kube_config_cluster.yml"
     if [ -f "$kubeconfig_path" ]; then
