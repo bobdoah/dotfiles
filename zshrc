@@ -152,16 +152,6 @@ fi
 
 autoload -U add-zsh-hook
 
-load-tfswitch() {
-  local tfswitchrc_path=".tfswitchrc"
-
-  if [ -f "$tfswitchrc_path" ]; then
-    tfswitch
-  fi
-}
-
-add-zsh-hook chpwd load-tfswitch
-load-tfswitch
 if type "kubectl" > /dev/null; then
     source <(kubectl completion zsh)
 fi

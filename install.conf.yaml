@@ -4,11 +4,11 @@
 
 - clean: ['~']
 
-- clean: 
+- clean:
     ~/.config:
       force: true
 - shell:
-  - [mkdir -p ~/.config, Creating .config directory]
+    - [mkdir -p ~/.config, Creating .config directory]
 
 - link:
     ~/.ackrc:
@@ -18,7 +18,7 @@
     ~/.hgrc:
     ~/.irssi:
     ~/.p4aliases:
-    ~/.tfswitch.toml:
+    ~/.tfenv:
     ~/.tmux:
     ~/.tmux.conf:
     ~/.vim:
@@ -29,6 +29,8 @@
     ~/.zgen:
 
 - shell:
-  - [vim +PlugInstall +qall &>/dev/null, Installing VIM plugins]
-  - ["if which tmux >/dev/null 2>&1; then ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all; fi", Installing tmux plugins]
-  - [ curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash -s -- -b $HOME/bin/, Installing tfswitch]
+    - [vim +PlugInstall +qall &>/dev/null, Installing VIM plugins]
+    - [
+        'if which tmux >/dev/null 2>&1; then ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all; fi',
+        Installing tmux plugins,
+      ]

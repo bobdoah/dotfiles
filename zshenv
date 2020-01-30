@@ -52,6 +52,11 @@ if [[ -d $GO_BIN ]]; then
     export PATH=${GO_BIN}:${PATH}
 fi
 
+TFENV_BIN=~/.tfenv/bin
+if [[ -d $TFENV_BIN ]]; then
+    export PATH=${TFENV_BIN}:${PATH}
+fi
+
 JENKINS_TOKEN_FILE=$HOME/.jenkins_token
 if [[ -f $JENKINS_TOKEN_FILE ]]; then
     export JENKINS_TOKEN=$(cat $JENKINS_TOKEN_FILE)
