@@ -19,6 +19,7 @@
     ~/.irssi:
     ~/.p4aliases:
     ~/.tfenv:
+      ignore-missing: true
     ~/.tmux:
     ~/.tmux.conf:
     ~/.vim:
@@ -27,8 +28,10 @@
     ~/.zshenv:
     ~/.zshrc:
     ~/.zgen:
+      ignore-missing: true
 
 - shell:
+    - [git submodule update --init --recursive, Installing submodules]
     - [vim +PlugInstall +qall &>/dev/null, Installing VIM plugins]
     - [
         'if which tmux >/dev/null 2>&1; then ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all; fi',
