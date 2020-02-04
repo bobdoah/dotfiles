@@ -162,3 +162,9 @@ load-kubeconfig(){
     fi
 }
 add-zsh-hook chpwd load-kubeconfig
+
+ASDF_DIR=$HOME/.asdf
+if [ -d $ASDF_DIR ]; then 
+   . $ASDF_DIR/asdf.sh
+   . $ASDF_DIR/completions/asdf.bash
+fi

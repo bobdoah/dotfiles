@@ -12,6 +12,8 @@
 
 - link:
     ~/.ackrc:
+    ~/.asdf:
+      ignore-missing: true
     ~/.cowsay:
     ~/.dircolors: dircolors/dircolors-solarized/dircolors.ansi-dark
     ~/.dotfiles: ''
@@ -37,3 +39,8 @@
         'if which tmux >/dev/null 2>&1; then ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all; fi',
         Installing tmux plugins,
       ]
+- asdf:
+    - plugin: terraform-validator
+      url: https://github.com/looztra/asdf-terraform-validator
+      versions:
+        - latest

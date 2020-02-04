@@ -2,6 +2,8 @@
 
 set -e
 
+PATH="$HOME/.asdf/bin:$PATH"
+
 CONFIGS="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
@@ -28,7 +30,7 @@ esac
 
 for config in ${CONFIGS} ${@}; do 
     if [ -f $config ]; then
-        "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${config}" 
+        PATH=${PATH} "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir dotbot-asdf -c "${config}" 
     fi
 done
 
