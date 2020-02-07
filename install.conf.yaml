@@ -17,6 +17,8 @@
     ~/.cowsay:
     ~/.dircolors: dircolors/dircolors-solarized/dircolors.ansi-dark
     ~/.dotfiles: ''
+    ~/.gitconfig:
+    ~/.gitconfig.work:
     ~/.hgrc:
     ~/.irssi:
     ~/.p4aliases:
@@ -43,4 +45,6 @@
     - plugin: terraform-validator
       url: https://github.com/looztra/asdf-terraform-validator
       versions:
+        - latest
+        - latest
         - latest
