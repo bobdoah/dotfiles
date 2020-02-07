@@ -1,0 +1,15 @@
+[alias]
+    p4 = !~/bin/git-p4.py
+    ocmmit = commit
+    ci = commit
+[github]
+    user = bobdoah
+
+[includeIf "gitdir:~/workspace/"]
+    path = ~/.gitconfig.work
+[log]
+    date = iso
+[user]
+    name = Robert Williams
+    email = robertwilliams1985@gmail.com
+
