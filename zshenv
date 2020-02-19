@@ -51,6 +51,10 @@ GO_BIN=/usr/local/go/bin
 if [[ -d $GO_BIN ]]; then
     export PATH=${GO_BIN}:${PATH}
 fi
+GO_HOME_BIN=$HOME/go/bin
+if [[ -d $GO_HOME_BIN ]]; then
+    export PATH=${GO_HOME_BIN}:${PATH}
+fi
 
 TFENV_BIN=~/.tfenv/bin
 if [[ -d $TFENV_BIN ]]; then
