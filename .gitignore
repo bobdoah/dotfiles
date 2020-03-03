@@ -221,3 +221,4 @@ config/mono.addins
 !tmux/plugins
 tmux/plugins/*
 !tmux/plugins/tpm
+tmux/notify/*

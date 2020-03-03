@@ -2,6 +2,7 @@
     p4 = !~/bin/git-p4.py
     ocmmit = commit
     ci = commit
+    tip = log -1
 [github]
     user = bobdoah
 
