@@ -168,3 +168,7 @@ if [ -d $ASDF_DIR ]; then
    . $ASDF_DIR/asdf.sh
    . $ASDF_DIR/completions/asdf.bash
 fi
+
+VAULT_PATH=$(asdf which vault)
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C $VAULT_PATH vault
