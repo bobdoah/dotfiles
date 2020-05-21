@@ -80,6 +80,6 @@ alias z̸̡͊͜a̸̡̨͎̗̗͛̐̂̊l̶̜̳̦̞͆̓̅͛́ͅg̴̨͉͖͓̟͆ȍ̷�
 
 export P4PORT=mdhvcperforce01.flexera.com:1666
 
-alias mvn="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v ~/.m2:/var/maven/.m2 -e MAVEN_CONFIG=/var/maven/.m2 -v "$(pwd)":/usr/src/maven -w /usr/src/maven -u $(id -u):$(getent group docker | cut -d : -f 3) maven:3-jdk-8 mvn -Duser.home=/var/maven"
+alias mvn='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v ~/.m2:/var/maven/.m2 -e MAVEN_CONFIG=/var/maven/.m2 -v "$(pwd)":/usr/src/maven -w /usr/src/maven -u $(id -u):$(getent group docker | cut -d : -f 3) maven:3-jdk-8 mvn -Duser.home=/var/maven'
 
-alias gradle="docker run --rm -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle gradle"
+alias gradle='docker run --rm -v '$(pwd)":/home/gradle/project -w /home/gradle/project gradle gradle"
