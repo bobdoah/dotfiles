@@ -28,6 +28,7 @@ Plug 'nfvs/vim-perforce'
 Plug 'stevearc/vim-arduino'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'tpope/vim-cucumber'
 " post install (yarn install | npm install) then load plugin only for editing
 " supported files
 Plug 'prettier/vim-prettier', {
