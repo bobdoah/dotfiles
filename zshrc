@@ -172,3 +172,7 @@ fi
 VAULT_PATH=$(asdf which vault)
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C $VAULT_PATH vault
+
+if type "aws-okta" > /dev/null; then
+    source <(aws-okta completion zsh)
+fi

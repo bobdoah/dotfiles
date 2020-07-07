@@ -236,6 +236,8 @@ autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expan
 autocmd FileType robot set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 " XML is also using tabs
 autocmd FileType xml set noexpandtab tabstop=8 shiftwidth=8 softtabstop=0
+" Gherkin/Cucumber files use two space
+autocmd FileType cucumber set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 
 " Setup the camel case motion mapping.
 silent! call camelcasemotion#CreateMotionMappings('<leader>')
@@ -316,3 +318,7 @@ let g:prettier#quickfix_enabled = 0
 "
 let g:prettier#autoformat = 0
 autocmd BufWritePre,TextChanged *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
