@@ -1,0 +1,2 @@
+#autoload
+docker run --rm -t -v $(pwd):/target bridgecrew/checkov -d /target "$@";

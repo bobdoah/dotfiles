@@ -178,6 +178,10 @@ nnoremap <leader>a :Ack
 " Bind a key to P4edit a file.
 nnoremap <leader>p :P4edit<CR>
 
+" Bind some keys for Fugitive shortcuts
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+
 " Not vi compatible mode
 set nocompatible
 
