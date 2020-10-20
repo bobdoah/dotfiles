@@ -15,7 +15,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/ssh-agent
     
     zgen load zsh-users/zsh-completions src
-    zgen load zachwhaley/bp4o src
     zgen load mafredri/zsh-async
 
     zgen save
@@ -114,10 +113,6 @@ if [[ -n $PID ]]; then
     export DISPLAY=$(pid=$(pgrep XWin); cat /proc/$pid/environ | tr '\0' '\n' | grep '^DISPLAY=' | cut -d '=' -f 2)
 fi
 
-if which p4 > /dev/null; then
-    export P4CONFIG=.p4rc
-fi
-
 PATH="/home/rwilliams/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/rwilliams/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/rwilliams/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
@@ -142,14 +137,6 @@ if [ -f '/Users/bob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bob/g
 #async_register_callback nvm_worker load_nvm
 #async_job nvm_worker sleep 0.1
 
-P4_BIN=/cygdrive/c/Program\ Files/Perforce/p4.exe 
-if [[ "$OSTYPE" == "cygwin" && -f  $P4_BIN ]]; then
-    function p4() {
-        export PWD=`cygpath -wa .`
-        $P4_BIN $@
-    }
-fi
-
 autoload -U add-zsh-hook
 
 if type "kubectl" > /dev/null; then
@@ -168,10 +155,6 @@ if [ -d $ASDF_DIR ]; then
    . $ASDF_DIR/asdf.sh
    . $ASDF_DIR/completions/asdf.bash
 fi
-
-VAULT_PATH=$(asdf which vault)
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C $VAULT_PATH vault
 
 if type "aws-okta" > /dev/null; then
     source <(aws-okta completion zsh)

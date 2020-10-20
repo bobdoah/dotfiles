@@ -6,11 +6,10 @@
 [github]
     user = bobdoah
 
-[includeIf "gitdir:~/workspace/"]
-    path = ~/.gitconfig.work
 [log]
     date = iso
 [user]
     name = Robert Williams
     email = robertwilliams1985@gmail.com
-
+[includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig.work
