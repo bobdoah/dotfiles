@@ -17,19 +17,18 @@ if [[ -d $TFFILTER_BIN ]]; then
     PATH=$TFFILTER_BIN:$PATH
 fi
 
-P4V_BIN=/opt/p4v/bin 
-if [[ -d $P4V_BIN ]]; then
-    PATH=$P4V_BIN:$PATH
-fi
-
 MAC_PYTHON3_BIN=~/Library/Python/3.5/bin
 if [[ -d $MAC_PYTHON3_BIN ]]; then
     PATH=$MAC_PYTHON3_BIN:$PATH
 fi
 
-export P4USER=rwilliams
-alias p3=python3
-alias p=python2
+MAC_PYTHON38_BIN=~/Library/Python/3.8/bin
+if [[ -d $MAC_PYTHON38_BIN ]]; then
+    PATH=$MAC_PYTHON38_BIN:$PATH
+fi
+
+alias p=python3
+alias p2=python2
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
@@ -61,11 +60,6 @@ if [[ -d $TFENV_BIN ]]; then
     export PATH=${TFENV_BIN}:${PATH}
 fi
 
-JENKINS_TOKEN_FILE=$HOME/.jenkins_token
-if [[ -f $JENKINS_TOKEN_FILE ]]; then
-    export JENKINS_TOKEN=$(cat $JENKINS_TOKEN_FILE)
-fi 
-
 if grep -q -s Microsoft /proc/version; then
     export DISPLAY=localhost:0.0
 fi
@@ -77,5 +71,3 @@ alias z̸̡͊͜a̸̡̨͎̗̗͛̐̂̊l̶̜̳̦̞͆̓̅͛́ͅg̴̨͉͖͓̟͆ȍ̷�
 ̔̅̈́̃T̋h̏̅͛eͭ ̍ͬ̓Ṅ̂̂e͆ͥ̃ͧ̏̀z͒̋̏̇̑peͬ͗̊̾̌̽ͦrͭ̒͒ͪd̀̋̅̔̿̔̄iͨ̆͐a̓̂̎̚ṅ hiͬ̓́ͪ̓v̂ͪ̎͋ͤ͑ė͒̐ͪ͛͐ͥ-͌̓̈́̒mͨĭn̾̅d̔ͭ ̄̃ͪ̆ͫ͂o̾f̋ͩ̍ ͮcͬ̏͊h̒͊̌̍̈́̓a̐͋̀o͆ͤ́ͭ̑ͮ̄s̀Ìͮ̓ͬ. ̆ͪͧͣͩZ̈́a̎̇l͌́gͪ̒ǒͦ̎. ̾͑̐̇ 
 ͑̌ͥ͛ͩ̚H̆ͧ̓e̍͊̒ͣ w̄́̀ho͐͋̍̌̎ͪ ̊̇͗͛̓Wͪ̅ä̇̍̌̄̈́̏ìͥ͗͌ͣͤt̾ͮ̒̽͌s̍͊ ̎̅̿̌Bͤ́ͬe̊͂̾̀̆͆̇ḧ́͂͑̇͋̄̾i̎ͬͬͨ̒̽͑n̉d̾̏̈́͊̌̄̓ ͦ̅ͬ̃T̂ͧ̚hͧͨ͗̂͂͋e̎̓ W̃̽͋͐̀a̍̈́̆̓̐lͫlͧ.̾ 
 ͒ͤ͌ͪͭZ͂̾͂̄͗ͦẢͪͣ͌͑̒̐LͦGͦͩ̓ͧOͭ̎̒͑!̇ͪ͐ͩͨ' | cowsay -f garfield.cow"
-
-export P4PORT=mdhvcperforce01.flexera.com:1666
