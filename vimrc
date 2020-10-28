@@ -24,7 +24,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'modille/groovy.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
-Plug 'nfvs/vim-perforce'
 Plug 'stevearc/vim-arduino'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
@@ -58,6 +57,7 @@ Plug 'vim-scripts/restore_view.vim'
 Plug 'vim-scripts/delview'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -299,9 +299,6 @@ autocmd FileType vue syntax sync fromstart
 set viewoptions=cursor,folds,slash,unix
 let g:skipview_files = ['*\.vim']
 
-let g:perforce_open_on_change = 1
-let g:perforce_auto_source_dirs = [$HOME . '/workspace']
-
 nmap <silent> <leader>r :CtrlPBuffer<cr>
 let g:ctrlp_map='<leader>t'
 let g:ctrlp_dotfiles=1
@@ -326,3 +323,7 @@ autocmd BufWritePre,TextChanged *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+" Don't enforce editor config on fugitive, scp or git commit messages
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+au FileType gitcommit let b:EditorConfig_disable = 1
