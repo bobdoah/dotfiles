@@ -15,8 +15,9 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/ssh-agent
     
     zgen load zsh-users/zsh-completions src
-    zgen load mafredri/zsh-async
-
+    if [ "$OSTYPE" != "cygwin" ]; then
+        zgen load mafredri/zsh-async
+    fi
     zgen save
 fi
 
