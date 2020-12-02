@@ -160,3 +160,10 @@ fi
 if type "aws-okta" > /dev/null; then
     source <(aws-okta completion zsh)
 fi
+
+unlock-keychain-aws(){
+    local aws_keychain="/Users/robert.williams/Library/Keychains/aws-vault.keychain-db"
+    security unlock-keychain $aws_keychain
+}
+
+eval $(thefuck --alias)

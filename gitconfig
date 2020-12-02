@@ -13,3 +13,5 @@
     email = robertwilliams1985@gmail.com
 [includeIf "gitdir:~/work/"]
     path = ~/.gitconfig.work
+[core]
+	ignorecase = false
