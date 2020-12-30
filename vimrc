@@ -9,7 +9,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'mileszs/ack.vim'
 Plug 'bkad/CamelCaseMotion'
 "Plug 'vim-syntastic/syntastic'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'majutsushi/tagbar'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
@@ -58,6 +58,9 @@ Plug 'vim-scripts/delview'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'tyru/open-browser.vim'
 
 call plug#end()
 
@@ -174,9 +177,6 @@ nnoremap <leader>v V`]
 
 " Bind a key for ack'ing
 nnoremap <leader>a :Ack
-
-" Bind a key to P4edit a file.
-nnoremap <leader>p :P4edit<CR>
 
 " Bind some keys for Fugitive shortcuts
 nnoremap <leader>gs :Gstatus<CR>
@@ -314,11 +314,7 @@ let g:ctrlp_custom_ignore = {
 " search the nearest ancestor that contains .git, .hg, .svn
 let g:ctrlp_working_path_mode = 2
 
-" Disable quickfix and run at every change
-let g:prettier#quickfix_enabled = 0
-"
-let g:prettier#autoformat = 0
-autocmd BufWritePre,TextChanged *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+let g:prettier#autoformat = 1
 
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -327,3 +323,15 @@ endif
 " Don't enforce editor config on fugitive, scp or git commit messages
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 au FileType gitcommit let b:EditorConfig_disable = 1
+
+" Show hidden files in NERDTree (.gitlab-ci.yml is hidden)
+let NERDTreeShowHidden=1
+
+" Don't smash the NERDTree buffer
+"autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+" and make it work fine with vim-plug
+"let g:plug_window = 'noautocmd vertical topleft new'
+
+" Ignore things
+set wildignore+=*.o,*.obj,*.git,*.git/*,*.class,*node_modules*,*.swp,*.swo,*target*,*.pyc,*.svn,*.hg,*.DS_Store,*.min.*
+let g:NERDTreeRespectWildIgnore = 1
