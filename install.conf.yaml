@@ -21,7 +21,6 @@
     ~/.gitconfig.work:
     ~/.hgrc:
     ~/.irssi:
-    ~/.p4aliases:
     ~/.tfenv:
       ignore-missing: true
     ~/.tmux:
