@@ -28,6 +28,7 @@ Plug 'stevearc/vim-arduino'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-repeat'
 " post install (yarn install | npm install) then load plugin only for editing
 " supported files
 Plug 'prettier/vim-prettier', {
@@ -61,6 +62,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'tyru/open-browser.vim'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -242,6 +244,8 @@ autocmd FileType robot set tabstop=4|set shiftwidth=4|set softtabstop=4|set expa
 autocmd FileType xml set noexpandtab tabstop=8 shiftwidth=8 softtabstop=0
 " Gherkin/Cucumber files use two space
 autocmd FileType cucumber set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+" Shell scripts using two space
+autocmd FileType sh set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 
 " Setup the camel case motion mapping.
 silent! call camelcasemotion#CreateMotionMappings('<leader>')
