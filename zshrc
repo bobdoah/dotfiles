@@ -166,4 +166,6 @@ unlock-keychain-aws(){
     security unlock-keychain $aws_keychain
 }
 
-eval $(thefuck --alias)
+if type "thefuck" > /dev/null; then
+    eval $(thefuck --alias)
+fi
