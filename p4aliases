@@ -1,9 +1,0 @@
-shlf $(change) = describe -sS $(change) 
-chng = changes -u $(P4USER) 
-pend = changelists -u $(P4USER) -s pending -c $(P4CLIENT)
-shlvd = changes -s shelved -c $(P4CLIENT) -u $(P4USER)
-tip = changelists -s submitted -c $(P4CLIENT) -m 1
-mv = move
-rm = delete
-cp = copy
-l = login -s

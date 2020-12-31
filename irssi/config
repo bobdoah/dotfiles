@@ -29,6 +29,15 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "rotteg.local";
+    chatnet = "freenode-znc";
+    port = "6697";
+    password = "bobdoah/freenode:KrF4Ug4Gn2zKA4tJ";
+    use_ssl = "yes";
+    ssl_verify = "no";
     autoconnect = "yes";
   }
 );
@@ -97,6 +106,7 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   freenode = { type = "IRC"; };
+  "freenode-znc" = { type = "IRC"; };
 };
 
 channels = (
@@ -153,6 +163,7 @@ aliases = {
   ATAG = "WINDOW SERVER";
   UNSET = "set -clear";
   RESET = "set -default";
+  znc = "msg *status";
 };
 
 statusbar = {
@@ -283,3 +294,4 @@ settings = {
 hilights = (
   { text = "bobdoah"; color = "%M"; nick = "yes"; word = "yes"; }
 );
+logs = { };
