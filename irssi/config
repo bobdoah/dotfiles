@@ -32,7 +32,7 @@ servers = (
     autoconnect = "no";
   },
   {
-    address = "rotteg";
+    address = "rotteg.local";
     chatnet = "freenode-znc";
     port = "6697";
     password = "bobdoah/freenode:KrF4Ug4Gn2zKA4tJ";
