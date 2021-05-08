@@ -1,0 +1,11 @@
+font:
+  normal:
+    family: Hack NF
+    style: Regular
+  bold:
+    family: Hack NF
+    style: Bold
+  size: 10
+
+shell:
+  program: "C:\\Windows\\System32\\wsl.exe ~"
