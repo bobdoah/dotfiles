@@ -14,6 +14,7 @@ PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 PATH=$HOME/bin:$HOME/.local/bin:$PATH
 PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 TFFILTER_BIN=~/.vim/bundle/vim-terraform-completion/bin
 if [[ -d $TFFILTER_BIN ]]; then
     PATH=$TFFILTER_BIN:$PATH
@@ -67,7 +68,12 @@ if grep -q -s Microsoft /proc/version; then
     export DISPLAY=localhost:0.0
 fi
 
-export COWPATH="/usr/share/cowsay/cows:$HOME/.cowsay"
+KREW_BIN=${KREW_ROOT:-$HOME/.krew}/bin
+if [[ -d $KREW_BIN ]]; then
+    export PATH=${KREW_BIN}:${PATH}
+fi
+
+export COWPATH="/usr/share/cowsay/cows:$HOME/.cowsay:/usr/local/share/cows"
 alias z̸̡͊͜a̸̡̨͎̗̗͛̐̂̊l̶̜̳̦̞͆̓̅͛́ͅg̴̨͉͖͓̟͆ơ̷̛̘͇̏̾̐="echo 'Ṫ͌ó̍ ̍͂̓̍̍̀i̊ͯ͒nͧ̍̓̃͋vok̂̓ͤ̓̂ěͬ ͆tͬ̐́̐͆h̒̏͌̓e͂ ̎̊h̽͆ͯ̄ͮi͊̂ͧͫ̇̃vͥͦ́ẻͤ-͒m̈́̀i̓ͮ͗̑͌̆̅n̓̓ͨd̊̑͛̔̚ ͨͮ̊̾rͪeͭͭ͑ͧ́͋p̈́̅̚rͧe̒̈̌s̍̽ͩ̓̇e͗n̏͊ͬͭtͨ͆ͤ̚iͪ͗̍n͐͒g̾ͦ̎ ͥ͌̽̊ͩͥ͗c̀ͬͣha̍̏̉ͪ̈̚o̊̏s̊̋̀̏̽̚.͒ͫ͛͛̎ͥ 
 ̎Iͫ̅n͆̆͑vͦ̅ŏͩͧ̓̊̀ͩk̃ͦ̚ĭͥ̏̊͆̌̈́ńg̅ ̒̋t̽̔h͊ê͑ ͐͂̀̈feͮ̑͋̀ͦe̓l͒̚̚i͛̋̅̆ͮnͨ̿̌̄gͣ ̌̅́̈́ȍf̋̏ ̇ͩ̇ͧ̏cͭ̔ȟ̈́͆a͋os͗͑̈̐.̔ 
 ̆̒ͮW̓͋ͮ͐̚i͂t̊ͪhͫͯ̑͒ ͫ̃̚o̐útͩ̍̉ ͒͂̍̿o̐rͥ͌deͥrͥ̑̐̈.̒̅̈́ͦ̓ 
