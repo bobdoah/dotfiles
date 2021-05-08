@@ -50,3 +50,8 @@
       url: https://github.com/Banno/asdf-hashicorp
       versions:
         - latest
+    - plugin: terraform
+      url: https://github.com/asdf-community/asdf-hashicorp.git
+      versions:
+        - 0.14.11
+        - 0.13.7

@@ -59,11 +59,6 @@ if [[ -d $GO_HOME_BIN ]]; then
     export PATH=${GO_HOME_BIN}:${PATH}
 fi
 
-TFENV_BIN=~/.tfenv/bin
-if [[ -d $TFENV_BIN ]]; then
-    export PATH=${TFENV_BIN}:${PATH}
-fi
-
 if grep -q -s Microsoft /proc/version; then
     export DISPLAY=localhost:0.0
 fi
