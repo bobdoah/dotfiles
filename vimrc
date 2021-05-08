@@ -63,6 +63,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -240,8 +241,8 @@ let g:tmuxline_theme = {
 
 autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expandtab
 autocmd FileType robot set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-" XML is also using tabs
-autocmd FileType xml set noexpandtab tabstop=8 shiftwidth=8 softtabstop=0
+" XML uses spaces
+autocmd FileType xml set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 " Gherkin/Cucumber files use two space
 autocmd FileType cucumber set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 " Shell scripts using two space
