@@ -182,8 +182,8 @@ nnoremap <leader>v V`]
 nnoremap <leader>a :Ack
 
 " Bind some keys for Fugitive shortcuts
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gs :Git <CR>
+nnoremap <leader>gp :Git push<CR>
 
 " Not vi compatible mode
 set nocompatible
