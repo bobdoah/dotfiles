@@ -46,6 +46,10 @@
       url: https://github.com/looztra/asdf-terraform-validator
       versions:
         - latest
+    - plugin: terraform-docs
+      url: https://github.com/looztra/asdf-terraform-docs
+      versions:
+        - latest
     - plugin: vault
       url: https://github.com/Banno/asdf-hashicorp
       versions:

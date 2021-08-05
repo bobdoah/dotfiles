@@ -85,7 +85,7 @@ if [[ -d $PGO_BIN ]]; then
     export PGO_CLIENT_KEY=$HOME/.pgo/pgo/client.key
 fi
 
-if grep -q microsoft /proc/version; then
+if grep -q -s microsoft /proc/version; then
      export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
      export LIBGL_ALWAYS_INDIRECT=1
 fi
