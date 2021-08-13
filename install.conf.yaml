@@ -57,10 +57,12 @@
     - plugin: terraform
       url: https://github.com/asdf-community/asdf-hashicorp.git
       versions:
+        - 1.0.4
         - 0.14.11
         - 0.13.7
     - plugin: terragrunt
       url: https://github.com/lotia/asdf-terragrunt.git
       versions:
+        - 0.31.3
         - 0.27.4
         - 0.26.7
