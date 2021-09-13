@@ -94,21 +94,6 @@ set nu
 " Viminfo file settings (saved across sessions)
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 
-" Syntastic settings
-"let g:syntastic_python_pylint_args=" -f parseable -r n --errors-only"
-"let g:syntastic_rst_checkers = ['sphinx']
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_html_tidy_exec = 'tidy5'
-"let g:syntastic_mode_map = {
-"	\ "mode": "active",
-"	\ "passive_filetypes": ["java"] }
-" (Optional) Enable terraform plan to be include in filter
-"let g:syntastic_terraform_tffilter_plan = 0
-
- 
 " Makefiles have to use tabs
 autocmd FileType make set noexpandtab shiftwidth=8
 
@@ -252,10 +237,6 @@ silent! call camelcasemotion#CreateMotionMappings('<leader>')
 
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
-let g:terraform_align=1
-let g:terraform_fmt_on_save=1
-
-
 
 " Run NERDTree if vim is opened with nothing
 autocmd StdinReadPre * let s:std_in=1
@@ -275,6 +256,8 @@ set completeopt-=preview
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 
 " (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
 let g:terraform_completion_keys = 1
@@ -282,19 +265,7 @@ let g:terraform_completion_keys = 1
 " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
 let g:terraform_registry_module_completion = 0
 
-" Enable omnicompletion
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-
-" Ctrl-Space for completions. Heck Yeah!
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-            \ "\<lt>C-n>" :
-            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
-
-autocmd FileType python set omnifunc=python3complete#Complete
 
 let g:prettier#config#config_precedence = 'file-override'
 let g:vue_disable_pre_processors=1
