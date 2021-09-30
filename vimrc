@@ -21,12 +21,16 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
+" lsp support
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 " autocompletion
 Plug 'Shougo/ddc.vim'
 Plug 'vim-denops/denops.vim'
 " autocompletion sources
 Plug 'Shougo/ddc-around'
 Plug 'delphinus/ddc-tmux'
+Plug 'shun/ddc-vim-lsp'
 " autocompletion filters
 Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
@@ -321,7 +325,7 @@ let g:NERDTreeRespectWildIgnore = 1
 " Customize global settings
 " Use around source.
 " https://github.com/Shougo/ddc-around
-call ddc#custom#patch_global('sources', ['around', 'tmux'])
+call ddc#custom#patch_global('sources', ['around', 'tmux', 'ddc-vim-lsp'])
 
 " Use matcher_head and sorter_rank.
 " https://github.com/Shougo/ddc-matcher_head
@@ -336,17 +340,14 @@ call ddc#custom#patch_global('sourceOptions', {
 call ddc#custom#patch_global('sourceOptions', {
       \ 'around': {'mark': 'A'},
       \ 'tmux': {'mark': 'T'},
+      \ 'ddc-vim-lsp': {
+        \   'matchers': ['matcher_head'],
+        \   'mark': 'lsp',
+      \ },
       \ })
 call ddc#custom#patch_global('sourceParams', {
       \ 'around': {'maxSize': 500},
       \ })
-
-" Customize settings on a filetype
-call ddc#custom#patch_filetype(['c', 'cpp'], 'sources', ['around', 'clangd', 'tmux'])
-call ddc#custom#patch_filetype(['c', 'cpp'], 'sourceOptions', {
-      \ 'clangd': {'mark': 'C'},
-      \ })
-
 " Mappings
 " <TAB>: completion.
 inoremap <silent><expr> <TAB>
