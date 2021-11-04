@@ -376,3 +376,8 @@ inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
 " Use ddc.
 call ddc#enable()
 
+" Buffer navigation
+nnoremap <leader>bs :buffers<CR>:buffer<Space>
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprev<CR>
+nnoremap <leader>bl :b#<CR>
