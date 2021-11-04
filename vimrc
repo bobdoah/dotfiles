@@ -177,8 +177,23 @@ nnoremap <leader>v V`]
 nnoremap <leader>a :Ack
 
 " Bind some keys for Fugitive shortcuts
-nnoremap <leader>gs :Git <CR>
+function! ToggleGStatus()
+  if buflisted(bufname('.git/index'))
+    bd .git/index
+  else
+    Git
+    20wincmd_
+  endif
+endfunction
+command! ToggleGStatus :call ToggleGStatus()
+nnoremap <silent> <leader>gs :ToggleGStatus<cr>
+"nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
+
+augroup fugitive_au
+  autocmd!
+  autocmd FileType fugitive setlocal winfixheight
+augroup END
 
 " Not vi compatible mode
 set nocompatible
@@ -300,7 +315,7 @@ let g:ctrlp_custom_ignore = {
 " search the nearest ancestor that contains .git, .hg, .svn
 let g:ctrlp_working_path_mode = 2
 
-let g:prettier#autoformat = 1
+let g:prettier#autoformat = 0
 
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -360,3 +375,4 @@ inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
 
 " Use ddc.
 call ddc#enable()
+
