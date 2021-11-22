@@ -7,9 +7,6 @@
 [submodule "tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "tfenv"]
-	path = tfenv
-	url = https://github.com/tfutils/tfenv.git
 [submodule "dotbot-asdf"]
 	path = dotbot-asdf
 	url = https://github.com/sobolevn/dotbot-asdf.git
