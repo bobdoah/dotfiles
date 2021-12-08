@@ -168,7 +168,3 @@ unlock-keychain-aws(){
     local aws_keychain="/Users/robert.williams/Library/Keychains/aws-vault.keychain-db"
     security unlock-keychain $aws_keychain
 }
-
-if type "thefuck" > /dev/null; then
-    eval $(thefuck --alias)
-fi
