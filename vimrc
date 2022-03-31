@@ -11,6 +11,7 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'dense-analysis/ale'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'vim-scripts/ZoomWin'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
@@ -36,7 +37,6 @@ Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
 Plug 'stevearc/vim-arduino'
 Plug 'hashivim/vim-terraform'
-Plug 'juliosueiras/vim-terraform-completion'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-repeat'
 " post install (yarn install | npm install) then load plugin only for editing
@@ -340,7 +340,7 @@ let g:NERDTreeRespectWildIgnore = 1
 " Customize global settings
 " Use around source.
 " https://github.com/Shougo/ddc-around
-call ddc#custom#patch_global('sources', ['around', 'tmux', 'ddc-vim-lsp'])
+call ddc#custom#patch_global('sources', ['around', 'tmux', 'vim-lsp'])
 
 " Use matcher_head and sorter_rank.
 " https://github.com/Shougo/ddc-matcher_head
@@ -355,7 +355,7 @@ call ddc#custom#patch_global('sourceOptions', {
 call ddc#custom#patch_global('sourceOptions', {
       \ 'around': {'mark': 'A'},
       \ 'tmux': {'mark': 'T'},
-      \ 'ddc-vim-lsp': {
+      \ 'vim-lsp': {
         \   'matchers': ['matcher_head'],
         \   'mark': 'lsp',
       \ },
@@ -381,3 +381,9 @@ nnoremap <leader>bs :buffers<CR>:buffer<Space>
 nnoremap <leader>bn :bnext<CR>
 nnoremap <leader>bp :bprev<CR>
 nnoremap <leader>bl :b#<CR>
+
+" Private things
+let private_vimrc = expand($MYVIMRC . ".private")
+if filereadable(private_vimrc)
+    execute "source " . fnameescape(private_vimrc)
+end
