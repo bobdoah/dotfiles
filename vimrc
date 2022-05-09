@@ -189,12 +189,12 @@ command! ToggleGStatus :call ToggleGStatus()
 nnoremap <silent> <leader>gs :ToggleGStatus<cr>
 "nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
-nnoremap <leader>gpf :Git push --force<CR>
+nnoremap <leader>gfp :Git push --force<CR>
 function! PushMergeRequest()
     let branch = execute("Git branch --show-current")
     execute("Git push --set upstream origin " . branch . " -o merge_request.create=true")
 endfunction
-nnoremap <leader>gpm :call PushMergeRequest()
+nnoremap <leader>gmp :call PushMergeRequest()
 
 augroup fugitive_au
   autocmd!
