@@ -1,6 +1,7 @@
 [alias]
     p4 = !~/bin/git-p4.py
     ocmmit = commit
+    commie = commit
     ci = commit
     tip = log -1
 [github]
@@ -15,3 +16,5 @@
     path = ~/.gitconfig.work
 [core]
 	ignorecase = false
+[init]
+	defaultBranch = main

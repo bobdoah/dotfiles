@@ -75,6 +75,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vmchale/dhall-vim'
 call plug#end()
 
 " Map leader key to comma:

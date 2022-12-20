@@ -127,12 +127,12 @@ if [ -f '/Users/bob/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bob/google-
 if [ -f '/Users/bob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bob/google-cloud-sdk/completion.zsh.inc'; fi
 
 
-#export NVM_DIR="$HOME/.nvm"
-#function load_nvm() {
-#    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-#}
-#
-## Initialize worker
+export NVM_DIR="$HOME/.nvm"
+function load_nvm() {
+    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+}
+
+# Initialize worker
 #async_init
 #async_start_worker nvm_worker -n
 #async_register_callback nvm_worker load_nvm
