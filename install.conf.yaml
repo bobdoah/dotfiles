@@ -24,6 +24,7 @@
     ~/.gitconfig.work:
     ~/.hgrc:
     ~/.irssi:
+    ~/.local/share/vim-lsp-settings/settings.json: vim-lsp-settings.json
     ~/.tfenv:
       ignore-missing: true
     ~/.tmux:

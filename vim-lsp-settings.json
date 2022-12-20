@@ -1,0 +1,11 @@
+{
+  "yaml-language-server": {
+    "workspace_config": {
+      "yaml": {
+        "schemas": {
+          "kubernetes": "deploy/*.yaml"
+        }
+      }
+    }
+  }	
+}
