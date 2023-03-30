@@ -1,0 +1,10 @@
+---
+extends: default
+
+rules:
+  line-length: disable
+  document-start: disable
+  indent-sequences: whatever
+
+ignore: |
+  templates/**.yaml
