@@ -13,6 +13,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/terraform
     zgen oh-my-zsh plugins/chucknorris
     zgen oh-my-zsh plugins/ssh-agent
+    zgen oh-my-zsh plugins/docker
     
     zgen load zsh-users/zsh-completions src
     if [ "$OSTYPE" != "cygwin" ]; then

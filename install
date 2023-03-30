@@ -19,11 +19,9 @@ case "$(uname -a)" in
         CONFIGS+=" cygwin.conf.yaml"
         ;;
     *Darwin*)
-        echo "darwin"
         CONFIGS+=" darwin.conf.yaml"
         ;;
     Linux*Microsoft*)
-       echo "WSL"
        CONFIGS+=" wsl.conf.yaml"
        ;; 
 esac
