@@ -178,24 +178,20 @@ nnoremap <leader>v V`]
 nnoremap <leader>a :Ack
 
 " Bind some keys for Fugitive shortcuts
-function! ToggleGStatus()
-  if buflisted(bufname('.git/index'))
-    bd .git/index
-  else
-    Git
-    20wincmd_
-  endif
-endfunction
-command! ToggleGStatus :call ToggleGStatus()
+" function! ToggleGStatus()
+"   if buflisted(bufname('.git/index'))
+"     bd .git/index
+"   else
+"     Git
+"     20wincmd_
+"   endif
+" endfunction
+" command! ToggleGStatus :call ToggleGStatus()
 nnoremap <silent> <leader>gs :ToggleGStatus<cr>
-"nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>gfp :Git push --force<CR>
-function! PushMergeRequest()
-    let branch = execute("Git branch --show-current")
-    execute("Git push --set upstream origin " . branch . " -o merge_request.create=true")
-endfunction
-nnoremap <leader>gmp :call PushMergeRequest()
+nnoremap <leader>gmp :Git push -o merge_request.create=true<CR>
 
 augroup fugitive_au
   autocmd!
