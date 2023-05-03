@@ -4,7 +4,8 @@ extends: default
 rules:
   line-length: disable
   document-start: disable
-  indent-sequences: whatever
+  indentation:
+    indent-sequences: whatever
 
 ignore: |
-  templates/**.yaml
+  **/templates/**.yaml

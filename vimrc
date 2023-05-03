@@ -22,12 +22,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
-" lsp support
+"" lsp support
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 " autocompletion
 Plug 'Shougo/ddc.vim'
 Plug 'vim-denops/denops.vim'
+" autoscompletion ui
+Plug 'Shougo/ddc-ui-native'
 " autocompletion sources
 Plug 'Shougo/ddc-around'
 Plug 'delphinus/ddc-tmux'
@@ -341,6 +343,8 @@ set wildignore+=*.o,*.obj,*.git,*.git/*,*.class,*node_modules*,*.swp,*.swo,*targ
 let g:NERDTreeRespectWildIgnore = 1
 
 " Customize global settings
+" Set default ui
+call ddc#custom#patch_global('ui', 'native')
 " Use around source.
 " https://github.com/Shougo/ddc-around
 call ddc#custom#patch_global('sources', ['around', 'tmux', 'vim-lsp'])
@@ -371,7 +375,7 @@ call ddc#custom#patch_global('sourceParams', {
 inoremap <silent><expr> <TAB>
 \ pumvisible() ? '<C-n>' :
 \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-\ '<TAB>' : ddc#manual_complete()
+\ '<TAB>' : ddc#map#manual_complete()
 
 " <S-TAB>: completion back.
 inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
@@ -390,3 +394,14 @@ let private_vimrc = expand($MYVIMRC . ".private")
 if filereadable(private_vimrc)
     execute "source " . fnameescape(private_vimrc)
 end
+
+let g:ale_virtualtext_cursor = 'disabled'
+let g:ale_pattern_options_enabled = 1
+let g:ale_pattern_options = {
+\   'templates/.*\.yaml$': {
+\       'ale_linters': {'yaml': []},
+\       'ale_fixers': [],
+\       'ale_enabled': 0,
+\   }
+\}
+let g:lsp_diagnostics_enabled = 0
