@@ -1,3 +1,4 @@
 terraform 1.2.9
 terraform-docs 0.16.0
-deno 1.33.1
+deno 1.36.0
+nodejs 20.5.0

@@ -27,7 +27,9 @@
     ~/.gitconfig.work:
     ~/.hgrc:
     ~/.irssi:
-    ~/.local/share/vim-lsp-settings/settings.json: vim-lsp-settings.json
+    ~/.local/share/vim-lsp-settings/settings.json:
+      path: vim-lsp-settings.json
+      create: true
     ~/.tfenv:
       ignore-missing: true
     ~/.tmux:
@@ -53,3 +55,11 @@
       url: https://github.com/looztra/asdf-terraform-validator
       versions:
         - latest
+    - plugin: deno
+      versions:
+        - latest
+    - plugin: nodejs
+      versions:
+        - latest
+
+
