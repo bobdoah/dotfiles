@@ -169,3 +169,7 @@ unlock-keychain-aws(){
     local aws_keychain="/Users/robert.williams/Library/Keychains/aws-vault.keychain-db"
     security unlock-keychain $aws_keychain
 }
+
+if type "/usr/local/bin/vim" > /dev/null; then
+    alias vi="/usr/local/bin/vim"
+fi
