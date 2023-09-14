@@ -55,11 +55,17 @@
       url: https://github.com/looztra/asdf-terraform-validator
       versions:
         - latest
+    - plugin: terraform-docs
+      url: https://github.com/looztra/asdf-terraform-docs
+      versions:
+        - latest
     - plugin: deno
       versions:
         - latest
     - plugin: nodejs
       versions:
         - latest
-
-
+    - plugin: k9s
+      url: https://github.com/looztra/asdf-k9s
+      versions:
+        - latest
