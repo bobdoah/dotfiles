@@ -1,5 +1,4 @@
 [alias]
-    p4 = !~/bin/git-p4.py
     ocmmit = commit
     commie = commit
     ci = commit
