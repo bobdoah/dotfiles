@@ -11,7 +11,7 @@
     date = iso
 [user]
     name = Robert Williams
-    email = robertwilliams1985@gmail.com
+    email = 1266467+bobdoah@users.noreply.github.com
 [includeIf "gitdir:~/work/"]
     path = ~/.gitconfig.work
 [core]
