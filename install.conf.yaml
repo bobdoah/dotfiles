@@ -67,5 +67,8 @@
         - latest
     - plugin: k9s
       url: https://github.com/looztra/asdf-k9s
+        - latest
+    - plugin: kustomize
+      url: https://github.com/Banno/asdf-kustomize.git
       versions:
         - latest

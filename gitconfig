@@ -19,3 +19,9 @@
 	defaultBranch = main
 [push]
 	autoSetupRemote = true
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://gitlab.com/

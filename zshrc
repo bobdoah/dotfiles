@@ -147,6 +147,10 @@ fi
 if type "helm" > /dev/null; then
     source <(helm completion zsh)
 fi
+
+if type "kustomize" > /dev/null; then
+    source <(kustomize completion zsh)
+fi
 load-kubeconfig(){
     local kubeconfig_path="kube_config_cluster.yml"
     if [ -f "$kubeconfig_path" ]; then
