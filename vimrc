@@ -173,6 +173,9 @@ set wildmode=list:longest,full
 " Disable the modeline (often a security risk)
 set nomodeline
 
+" Save shortcut
+nnoremap ZA :w<CR>
+
 " Bind a key to let me reselect the text that was just pasted
 nnoremap <leader>v V`]
 
