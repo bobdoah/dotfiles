@@ -21,7 +21,6 @@
       path: yamllint.yaml
       create: true
     ~/.cowsay:
-    ~/.dircolors: dircolors/dircolors-solarized/dircolors.ansi-dark
     ~/.dotfiles: ''
     ~/.gitconfig:
     ~/.gitconfig.work:
