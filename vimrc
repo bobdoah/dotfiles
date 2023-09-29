@@ -151,7 +151,7 @@ endfunc
 nnoremap <silent><F3> :call g:ToggleNuMode()<CR>
 
 set termguicolors
-silent! colorscheme catppuccin_mocha
+silent! colorscheme catppuccin_macchiato
 
 " Tagbar toggle key
 nmap <F8> :TagbarToggle<CR>
