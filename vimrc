@@ -9,6 +9,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'mileszs/ack.vim'
 Plug 'bkad/CamelCaseMotion'
 Plug 'dense-analysis/ale'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
@@ -17,7 +18,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-abolish'
-Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -149,17 +149,9 @@ endfunc
 
 " Map the numbering mode toggle to a key
 nnoremap <silent><F3> :call g:ToggleNuMode()<CR>
- 
-" Solarized settings
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
 
-let g:solarized_termtrans = 1
-let g:solarized_termcolors = 16
-silent! colorscheme solarized
+set termguicolors
+silent! colorscheme catppuccin_mocha
 
 " Tagbar toggle key
 nmap <F8> :TagbarToggle<CR>
@@ -215,47 +207,16 @@ nnoremap <silent><C-k> :lprev<cr>
 
 " vim-airline status bar
 " use the fancy powerline symbols
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 set ambiwidth=double
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+"let g:airline_left_sep=''
+"let g:airline_right_sep=''
 
 " Make sure the powerline status bar is always displayed
 set laststatus=2
 
 " Hide the mode
 set noshowmode
-
-" Set the font for gvim in windows
-if has("gui_win32")
-    set guifont=Powerline_Consolas:h11:cANSI
-endif
-
-"let g:tmuxline_theme = 'airline_insert'
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '#F',
-      \'c'    : ['#W', '#P'],
-      \'win'  : '#I #W',
-      \'cwin' : '#I #W',
-      \'x'    : '',
-      \'y'    : '%R',
-      \'z'    : '#h'}
-let g:airline#extensions#tmuxline#enabled = 0
-let g:tmuxline_powerline_separators = 0
-
-let g:tmuxline_theme = {
-            \ 'a': [15, 33, 'bold'],
-            \ 'b': [7, 11, ''],
-            \ 'c': [14, '0', ''],
-            \ 'bg': [10, '0', ''],
-            \ 'x': [10, '0', ''], 
-            \ 'y': [7, 11, ''], 
-            \ 'z': [15, 33, ''], 
-            \ 'cwin': [7, 33, ''], 
-            \ 'win': [14, '0', ''], 
-            \ 'win.activity': [1, '0', 'none']
-            \ }
 
 autocmd FileType ruby set tabstop=8|set shiftwidth=2|set softtabstop=2|set expandtab
 autocmd FileType robot set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
