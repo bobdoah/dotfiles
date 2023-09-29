@@ -71,7 +71,7 @@
       url: https://github.com/Banno/asdf-kustomize.git
       versions:
         - latest
-    - plugi4: tmux
+    - plugin: tmux
       url: aphecetche/asdf-tmux
       versions:
         - latest
