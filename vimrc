@@ -359,6 +359,7 @@ if filereadable(private_vimrc)
     execute "source " . fnameescape(private_vimrc)
 end
 
+let g:ale_set_highlights = 0
 let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_pattern_options_enabled = 1
 let g:ale_pattern_options = {
