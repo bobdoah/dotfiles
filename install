@@ -4,31 +4,17 @@ set -e
 
 PATH="$HOME/.asdf/bin:$PATH"
 
-CONFIGS="install.conf.yaml"
+CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-
-case "$(uname -a)" in 
-    *cygwin*|*CYGWIN*)
-        CONFIGS+=" cygwin.conf.yaml"
-        ;;
-    *Darwin*)
-        CONFIGS+=" darwin.conf.yaml"
-        ;;
-    Linux*Microsoft*)
-       CONFIGS+=" wsl.conf.yaml"
-       ;; 
-esac
-
-for config in ${CONFIGS} ${@}; do 
-    if [ -f $config ]; then
-        PATH=${PATH} "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir dotbot-asdf -c "${config}" 
-    fi
-done
-
+PATH=${PATH} "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" \
+  --plugin-dir dotbot-asdf \
+  --plugin-dir dotbot-crossplatform \
+  -c "${CONFIG}" "${@}"

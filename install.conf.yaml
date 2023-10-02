@@ -7,11 +7,8 @@
 - clean:
     ~/.config:
       force: true
-- shell:
-    - [mkdir -p ~/.config, Creating .config directory]
 
 - link:
-    ~/.ackrc:
     ~/.asdf:
       ignore-missing: true
     ~/.config/sql-lint/config.json:
@@ -26,12 +23,9 @@
     ~/.dotfiles: ''
     ~/.gitconfig:
     ~/.gitconfig.work:
-    ~/.hgrc:
-    ~/.irssi:
     ~/.local/share/vim-lsp-settings/settings.json:
       path: vim-lsp-settings.json
       create: true
-    ~/.tfenv:
       ignore-missing: true
     ~/.tmux:
     ~/.tmux.conf:
@@ -44,6 +38,14 @@
     ~/.zgen:
       ignore-missing: true
 
+- crossplatform-link:
+    "~/Library/Application Support/k9s/skin.yml":
+      platform: darwin
+      path: k9s/skin.yml 
+    ~/.config/k9s/skin.yml:
+      platform: linux
+      path: k9s/skin.yml
+
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [vim +PlugInstall +qall &>/dev/null, Installing VIM plugins]
@@ -51,6 +53,7 @@
         'if which tmux >/dev/null 2>&1; then ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all; fi',
         Installing tmux plugins,
       ]
+
 - asdf:
     - plugin: terraform-validator
       url: https://github.com/looztra/asdf-terraform-validator
@@ -73,10 +76,10 @@
       url: https://github.com/Banno/asdf-kustomize.git
       versions:
         - latest
-    - plugin: tmux
-      url: aphecetche/asdf-tmux
-      versions:
-        - latest
-    - plugin: neovim
-      url: richin13/asdf-neovim
-      versions:
+          #    - plugin: tmux
+          #      url: https://github.com/aphecetche/asdf-tmux
+          #      versions:
+          #        - latest
+          #    - plugin: neovim
+          #      url: https://github.com/richin13/asdf-neovim
+          #      versions:

@@ -16,3 +16,6 @@
 [submodule "alacritty/catppuccin"]
 	path = alacritty/catppuccin
 	url = https://github.com/catppuccin/alacritty.git
+[submodule "dotbot-crossplatform"]
+	path = dotbot-crossplatform
+	url = git@github.com:msdrigg/dotbot-crossplatform.git
