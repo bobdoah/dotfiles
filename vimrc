@@ -10,7 +10,6 @@ Plug 'mileszs/ack.vim'
 Plug 'bkad/CamelCaseMotion'
 Plug 'dense-analysis/ale'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'vim-scripts/ZoomWin'

@@ -20,6 +20,8 @@
     ~/.config/yamllint/config:
       path: yamllint.yaml
       create: true
+    ~/.config/alacritty:
+      path: alacritty
     ~/.cowsay:
     ~/.dotfiles: ''
     ~/.gitconfig:
