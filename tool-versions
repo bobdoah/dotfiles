@@ -4,3 +4,4 @@ deno 1.36.4
 nodejs 20.6.1
 k9s 0.27.4
 kustomize 5.1.1
+sops 3.8.0
