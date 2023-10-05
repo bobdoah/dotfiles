@@ -79,8 +79,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vmchale/dhall-vim'
 call plug#end()
 
-" Map leader key to comma:
-let mapleader = ","
+" Map leader key to space:
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 " Map j and k to move down/up a single row each time
 nmap j gj
