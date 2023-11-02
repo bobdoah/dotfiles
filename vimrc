@@ -19,7 +19,6 @@ Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-abolish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 "" lsp support
 Plug 'prabirshrestha/vim-lsp'
@@ -111,9 +110,6 @@ set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 " Makefiles have to use tabs
 autocmd FileType make set noexpandtab shiftwidth=8
 
- 
-" Toggle for paste mode
-set pastetoggle=<F5>
 set showmode
  
 " Toggle function for line numbering 
@@ -370,3 +366,26 @@ let g:ale_pattern_options = {
 \   }
 \}
 let g:lsp_diagnostics_enabled = 0
+
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+    " Better mouse support, see  :help 'ttymouse'
+    set ttymouse=sgr
+
+    " Enable bracketed paste mode, see  :help xterm-bracketed-paste
+    let &t_BE = "\<Esc>[?2004h"
+    let &t_BD = "\<Esc>[?2004l"
+    let &t_PS = "\<Esc>[200~"
+    let &t_PE = "\<Esc>[201~"
+
+    " Enable focus event tracking, see  :help xterm-focus-event
+    let &t_fe = "\<Esc>[?1004h"
+    let &t_fd = "\<Esc>[?1004l"
+    execute "set <FocusGained>=\<Esc>[I"
+    execute "set <FocusLost>=\<Esc>[O"
+
+    " Enable modified arrow keys, see  :help arrow_modifiers
+    execute "silent! set <xUp>=\<Esc>[@;*A"
+    execute "silent! set <xDown>=\<Esc>[@;*B"
+    execute "silent! set <xRight>=\<Esc>[@;*C"
+    execute "silent! set <xLeft>=\<Esc>[@;*D"
+endif
