@@ -11,14 +11,10 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh plugins/terraform
-    zgen oh-my-zsh plugins/chucknorris
     zgen oh-my-zsh plugins/ssh-agent
     zgen oh-my-zsh plugins/docker
     
     zgen load zsh-users/zsh-completions src
-    if [ "$OSTYPE" != "cygwin" ]; then
-        zgen load mafredri/zsh-async
-    fi
     zgen save
 fi
 
@@ -83,25 +79,6 @@ zstyle ':completion:*' menu select=2
 
 source $ZSH_CONFIG_DIR/private 2>/dev/null
 
-PYTHON3=$(whence python3 2>/dev/null)
-if [[ ! -z $PYTHON3 ]] ; then 
-    alias python=$PYTHON3
-    export VIRTUALENVWRAPPER_PYTHON=$PYTHON3
-fi
-
-PYTHON37=$(whence python3.7 2>/dev/null)
-if [[ ! -z $PYTHON37 ]] ; then 
-    alias python=$PYTHON37
-    export VIRTUALENVWRAPPER_PYTHON=$PYTHON37
-fi
-
-# Load virtualenvwrapper
-VIRTUAL_ENV_WRAPPER=$(which virtualenvwrapper.sh >/dev/null 2>&1;)
-if [[ $(id -u) != 0  && "$OSTYPE" != "cygwin"  && -f $VIRTUAL_ENV_WRAPPER ]]; then
-    source $VIRTUAL_ENV_WRAPPER
-fi
-
-
 # Suffix aliases
 autoload -U zsh-mime-setup
 zsh-mime-setup
@@ -151,21 +128,10 @@ fi
 if type "kustomize" > /dev/null; then
     source <(kustomize completion zsh)
 fi
-load-kubeconfig(){
-    local kubeconfig_path="kube_config_cluster.yml"
-    if [ -f "$kubeconfig_path" ]; then
-        export KUBECONFIG=$kubeconfig_path
-    fi
-}
-add-zsh-hook chpwd load-kubeconfig
 
 ASDF_DIR=$HOME/.asdf
 if [ -d $ASDF_DIR ]; then 
    . $ASDF_DIR/asdf.sh
-fi
-
-if type "aws-okta" > /dev/null; then
-    source <(aws-okta completion zsh)
 fi
 
 unlock-keychain-aws(){
