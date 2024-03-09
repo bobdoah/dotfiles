@@ -42,9 +42,11 @@
     "~/Library/Application Support/k9s/skin.yml":
       platform: darwin
       path: k9s/skin.yml 
+      create: true
     ~/.config/k9s/skin.yml:
       platform: linux
       path: k9s/skin.yml
+      create: true
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
