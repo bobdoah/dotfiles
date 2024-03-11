@@ -14,7 +14,7 @@
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
 [submodule "alacritty/catppuccin"]
-	path = alacritty/catppuccin
+	path = config/alacritty/catppuccin
 	url = https://github.com/catppuccin/alacritty.git
 [submodule "dotbot-crossplatform"]
 	path = dotbot-crossplatform

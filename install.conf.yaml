@@ -11,14 +11,15 @@
 - link:
     ~/.asdf:
       ignore-missing: true
-    ~/.config/sql-lint/config.json:
-      path: sql-lint.json
-      create: true
-    ~/.config/yamllint/config:
-      path: yamllint.yaml
-      create: true
+    ~/.config/sql-lint:
+      path: config/sql-lint
+      force: true
+    ~/.config/yamllint:
+      path: config/yamllint
+      force: true
     ~/.config/alacritty:
-      path: alacritty
+      path: config/alacritty
+      force: true
     ~/.cowsay:
     ~/.dotfiles: ''
     ~/.gitconfig:
@@ -41,11 +42,11 @@
 - crossplatform-link:
     "~/Library/Application Support/k9s/skin.yml":
       platform: darwin
-      path: k9s/skin.yml 
+      path: config/k9s/skin.yml 
       create: true
     ~/.config/k9s/skin.yml:
+      path: config/k9s/skin.yml
       platform: linux
-      path: k9s/skin.yml
       create: true
 
 - shell:
