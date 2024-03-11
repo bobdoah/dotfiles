@@ -13,13 +13,12 @@
       ignore-missing: true
     ~/.config/sql-lint:
       path: config/sql-lint
-      force: true
     ~/.config/yamllint:
       path: config/yamllint
-      force: true
     ~/.config/alacritty:
       path: config/alacritty
-      force: true
+    ~/.config/nvim:
+      path: config/nvim
     ~/.cowsay:
     ~/.dotfiles: ''
     ~/.gitconfig:
