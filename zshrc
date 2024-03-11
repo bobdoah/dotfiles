@@ -142,3 +142,4 @@ unlock-keychain-aws(){
 if type "/usr/local/bin/vim" > /dev/null; then
     alias vi="/usr/local/bin/vim"
 fi
+. "$HOME/.cargo/env"
