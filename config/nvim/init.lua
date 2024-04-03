@@ -209,7 +209,8 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
-
+-- Slow Conform formatters
+local slow_format_filetypes = {}
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -537,7 +538,9 @@ require('lazy').setup({
         -- clangd = {},
         gopls = {},
         jedi_language_server = {},
-        -- pyright = {},
+        terraformls = {},
+        tflint = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -589,6 +592,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
+        'ruff',
+        'shfmt',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -609,14 +614,47 @@ require('lazy').setup({
 
   { -- Autoformat
     'stevearc/conform.nvim',
+    event = { 'BufWritePre' },
+    cmd = { 'ConformInfo' },
+    keys = {
+      {
+        -- Customize or remove this keymap to your liking
+        '<leader>f',
+        function()
+          require('conform').format { async = true, lsp_fallback = true }
+        end,
+        mode = '',
+        desc = 'Format buffer',
+      },
+    },
     opts = {
       notify_on_error = false,
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
+      format_on_save = function(bufnr)
+        if slow_format_filetypes[vim.bo[bufnr].filetype] then
+          return
+        end
+        local function on_format(err)
+          if err and err:match 'timeout$' then
+            slow_format_filetypes[vim.bo[bufnr].filetype] = true
+          end
+        end
+        return { timeout_ms = 500, lsp_fallback = true }, on_format
+      end,
+
+      format_after_save = function(bufnr)
+        if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+          return
+        end
+        return { lsp_fallback = true }
+      end,
+
       formatters_by_ft = {
         lua = { 'stylua' },
+        python = { 'ruff_fix', 'ruff_format' },
+        go = { 'gofmt', 'goimports' },
+        terraform = { 'terraform_fmt' },
+        ['*'] = { 'trim_newlines' },
+        ['_'] = { 'trim_whitespace' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -625,6 +663,15 @@ require('lazy').setup({
         -- javascript = { { "prettierd", "prettier" } },
       },
     },
+    formatters = {
+      shfmt = {
+        prepend_args = { '-i', '2' },
+      },
+    },
+    init = function()
+      -- If you want the formatexpr, here is the place to set it
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
   },
 
   { -- Autocompletion
@@ -739,7 +786,12 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
