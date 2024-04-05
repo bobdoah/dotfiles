@@ -39,12 +39,12 @@
       ignore-missing: true
 
 - crossplatform-link:
-    "~/Library/Application Support/k9s/skin.yml":
+    "~/Library/Application Support/k9s":
       platform: darwin
-      path: config/k9s/skin.yml 
+      path: config/k9s
       create: true
-    ~/.config/k9s/skin.yml:
-      path: config/k9s/skin.yml
+    ~/.config/k9s:
+      path: config/k9s
       platform: linux
       create: true
 
