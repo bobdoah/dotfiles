@@ -3,7 +3,7 @@ ZSH_CONFIG_DIR=$HOME/.zsh
 source "${HOME}/.zgen/zgen.zsh"
 
 # if the init script doesn't exist
-if ! zgen saved; then 
+if ! zgen saved; then
     echo "Creating a zgen save"
 
     zgen oh-my-zsh
@@ -13,13 +13,13 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/terraform
     zgen oh-my-zsh plugins/ssh-agent
     zgen oh-my-zsh plugins/docker
-    
+
     zgen load zsh-users/zsh-completions src
     zgen save
 fi
 
 # Use emacs mode (same as bash default)
-bindkey -e 
+bindkey -e
 
 source $ZSH_CONFIG_DIR/zkbd-terminfo
 # Line editing keys
@@ -129,8 +129,13 @@ if type "kustomize" > /dev/null; then
     source <(kustomize completion zsh)
 fi
 
+if type "flux" > /dev/null; then
+    source <(flux completion zsh)
+fi
+
+
 ASDF_DIR=$HOME/.asdf
-if [ -d $ASDF_DIR ]; then 
+if [ -d $ASDF_DIR ]; then
    . $ASDF_DIR/asdf.sh
 fi
 
@@ -143,3 +148,6 @@ if type "/usr/local/bin/vim" > /dev/null; then
     alias vi="/usr/local/bin/vim"
 fi
 . "$HOME/.cargo/env"
+
+# add Pulumi to the PATH
+export PATH=$PATH:/home/bobdoah/.pulumi/bin
