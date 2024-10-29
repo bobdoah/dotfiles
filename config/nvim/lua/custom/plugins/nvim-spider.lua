@@ -18,5 +18,11 @@ return {
       "<cmd>lua require('spider').motion('b')<CR>",
       mode = { 'n', 'o', 'x' },
     },
+    {
+      'cw',
+      'ce',
+      mode = 'n',
+      remap = true,
+    },
   },
 }
