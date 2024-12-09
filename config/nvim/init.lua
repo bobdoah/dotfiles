@@ -854,6 +854,7 @@ require('lazy').setup({
           'html',
           'lua',
           'markdown',
+          'starlark',
           'terraform',
           'vim',
           'vimdoc',
