@@ -10,6 +10,7 @@ PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 PATH=$HOME/bin:$HOME/.local/bin:$PATH
 PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+PATH=$PATH:/opt/nvim-linux64/bin
 
 alias p=python3
 alias p2=python2
