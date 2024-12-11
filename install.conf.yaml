@@ -66,11 +66,3 @@
       url: https://github.com/looztra/asdf-k9s
       versions:
         - latest
-    - plugin: iam-policy-json-to-terraform
-      url: https://github.com/carlduevel/asdf-iam-policy-json-to-terraform.git
-      versions:
-        - latest
-    - plugin: kustomize
-      url: https://github.com/Banno/asdf-kustomize.git
-      versions:
-        - latest
