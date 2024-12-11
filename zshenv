@@ -1,11 +1,7 @@
-export EDITOR=vim
+export EDITOR=nvim
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
-# local path
-if [[ $OSTYPE == 'cygwin' ]]; then
-    PATH=/usr/bin:$PATH
-fi
 PATH=/usr/local/bin:$PATH
 PATH=/snap/bin:$PATH
 # Superuser locations
@@ -14,21 +10,6 @@ PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 PATH=$HOME/bin:$HOME/.local/bin:$PATH
 PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
-PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-TFFILTER_BIN=~/.vim/bundle/vim-terraform-completion/bin
-if [[ -d $TFFILTER_BIN ]]; then
-    PATH=$TFFILTER_BIN:$PATH
-fi
-
-MAC_PYTHON3_BIN=~/Library/Python/3.5/bin
-if [[ -d $MAC_PYTHON3_BIN ]]; then
-    PATH=$MAC_PYTHON3_BIN:$PATH
-fi
-
-MAC_PYTHON38_BIN=~/Library/Python/3.8/bin
-if [[ -d $MAC_PYTHON38_BIN ]]; then
-    PATH=$MAC_PYTHON38_BIN:$PATH
-fi
 
 alias p=python3
 alias p2=python2

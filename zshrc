@@ -104,18 +104,6 @@ if [ -f '/Users/bob/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bob/google-
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bob/google-cloud-sdk/completion.zsh.inc'; fi
 
-
-export NVM_DIR="$HOME/.nvm"
-function load_nvm() {
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-}
-
-# Initialize worker
-#async_init
-#async_start_worker nvm_worker -n
-#async_register_callback nvm_worker load_nvm
-#async_job nvm_worker sleep 0.1
-
 autoload -U add-zsh-hook
 
 if type "kubectl" > /dev/null; then
@@ -138,11 +126,6 @@ ASDF_DIR=$HOME/.asdf
 if [ -d $ASDF_DIR ]; then
    . $ASDF_DIR/asdf.sh
 fi
-
-unlock-keychain-aws(){
-    local aws_keychain="/Users/robert.williams/Library/Keychains/aws-vault.keychain-db"
-    security unlock-keychain $aws_keychain
-}
 
 if type "/usr/local/bin/vim" > /dev/null; then
     alias vi="/usr/local/bin/vim"
