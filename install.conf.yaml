@@ -19,6 +19,9 @@
       path: config/alacritty
     ~/.config/nvim:
       path: config/nvim
+    ~/.config/kitty:
+      path: config/kitty
+      force: true
     ~/.cowsay:
     ~/.dotfiles: ''
     ~/.gitconfig:
@@ -35,6 +38,7 @@
     ~/.zsh:
     ~/.zshenv:
     ~/.zshrc:
+      force: true
     ~/.zgen:
       ignore-missing: true
 
