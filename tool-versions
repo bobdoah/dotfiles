@@ -1,9 +1,6 @@
 terraform 1.5.7
 terraform-docs 0.17.0
-deno 1.42.1
-nodejs 21.7.2
 kustomize 5.4.1
 sops 3.8.0
-iam-policy-json-to-terraform 1.8.2
-k9s 0.32.4
+k9s 0.32.7
 terraform-validator 3.1.3
