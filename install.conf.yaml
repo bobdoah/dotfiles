@@ -26,15 +26,9 @@
     ~/.dotfiles: ''
     ~/.gitconfig:
     ~/.gitconfig.work:
-    ~/.local/share/vim-lsp-settings/settings.json:
-      path: vim-lsp-settings.json
-      create: true
-      ignore-missing: true
     ~/.tmux:
     ~/.tmux.conf:
     ~/.tool-versions:
-    ~/.vim:
-    ~/.vimrc:
     ~/.zsh:
     ~/.zshenv:
     ~/.zshrc:
@@ -66,12 +60,6 @@
         - latest
     - plugin: terraform-docs
       url: https://github.com/looztra/asdf-terraform-docs
-      versions:
-        - latest
-    - plugin: deno
-      versions:
-        - latest
-    - plugin: nodejs
       versions:
         - latest
     - plugin: k9s
