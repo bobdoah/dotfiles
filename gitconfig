@@ -5,14 +5,11 @@
     tip = log -1
 [github]
     user = bobdoah
-
 [log]
     date = iso
 [user]
     name = Robert Williams
     email = 1266467+bobdoah@users.noreply.github.com
-[includeIf "gitdir:~/work/"]
-    path = ~/.gitconfig.work
 [core]
 	ignorecase = false
 [init]
@@ -25,3 +22,5 @@
 	prune = true
 [url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
+[include]
+    path = ~/.gitconfig.local
