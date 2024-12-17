@@ -222,3 +222,6 @@ config/mono.addins
 tmux/plugins/*
 !tmux/plugins/tpm
 tmux/notify/*
+
+" Kitty config backups
+config/kitty/*.bak
