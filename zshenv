@@ -17,6 +17,7 @@ PATH=/usr/local/go/bin:$PATH
 PATH=${KREW_ROOT:-$HOME/.krew}/bin:$PATH
 PATH=$HOME/.pgo/pgo:$PATH
 PATH=$PATH:$HOME/.pulumi/bin
+PATH=$PATH:$HOME/.kpp/bin
 export PATH
 
 
