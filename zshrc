@@ -116,6 +116,11 @@ if type "flux" > /dev/null; then
     source <(flux completion zsh)
 fi
 
+if type "switcher" > /dev/null; then
+    source <(switcher init zsh)
+    source <(switch completion zsh)
+fi
+
 # ASDF managed tools
 ASDF_DIR=$HOME/.asdf
 if [ -d $ASDF_DIR ]; then
