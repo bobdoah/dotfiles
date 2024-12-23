@@ -25,7 +25,6 @@
     ~/.cowsay:
     ~/.dotfiles: ''
     ~/.gitconfig:
-    ~/.gitconfig.work:
     ~/.tmux:
     ~/.tmux.conf:
     ~/.tool-versions:
