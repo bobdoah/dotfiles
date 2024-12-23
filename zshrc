@@ -119,6 +119,7 @@ fi
 if type "switcher" > /dev/null; then
     source <(switcher init zsh)
     source <(switch completion zsh)
+    switch .
 fi
 
 # ASDF managed tools
