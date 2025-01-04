@@ -371,6 +371,8 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      local extensions = require('telescope').extensions
+      vim.keymap.set('n', '<leader>sb', extensions.file_browser.file_browser, { desc = '[S]earch File [B]rowser' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
@@ -602,6 +604,8 @@ require('lazy').setup({
         'ruff',
         'shfmt',
         'goimports',
+        'golangci-lint',
+        'hadolint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
