@@ -601,6 +601,7 @@ require('lazy').setup({
         'stylua', -- Used to format lua code
         'ruff',
         'shfmt',
+        'goimports',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
