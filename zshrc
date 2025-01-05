@@ -97,7 +97,7 @@ if [ -f '/Users/bob/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bob/google-
 
 if [ -f '/Users/bob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bob/google-cloud-sdk/completion.zsh.inc'; fi
 
-if [ -f "$HOME/.cargo/env" ]; then . "$OME/.cargo/env"; fi
+if [ -f "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env"; fi
 
 autoload -U add-zsh-hook
 
