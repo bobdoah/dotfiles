@@ -1,4 +1,6 @@
 ZSH_CONFIG_DIR=$HOME/.zsh
+source $ZSH_CONFIG_DIR/private 2>/dev/null
+
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -76,8 +78,6 @@ autoload -U compinit && compinit
 
 # Show completion menu when number of options is at least two
 zstyle ':completion:*' menu select=2
-
-source $ZSH_CONFIG_DIR/private 2>/dev/null
 
 # Suffix aliases
 autoload -U zsh-mime-setup
