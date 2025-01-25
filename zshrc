@@ -92,11 +92,6 @@ if [[ -n $PID ]]; then
     export DISPLAY=$(pid=$(pgrep XWin); cat /proc/$pid/environ | tr '\0' '\n' | grep '^DISPLAY=' | cut -d '=' -f 2)
 fi
 
-# Custom autocompletions
-if [ -f '/Users/bob/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bob/google-cloud-sdk/path.zsh.inc'; fi
-
-if [ -f '/Users/bob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bob/google-cloud-sdk/completion.zsh.inc'; fi
-
 if [ -f "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env"; fi
 
 autoload -U add-zsh-hook
