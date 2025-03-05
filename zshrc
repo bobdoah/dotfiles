@@ -111,6 +111,10 @@ if type "flux" > /dev/null; then
     source <(flux completion zsh)
 fi
 
+if type "argocd" > /dev/null; then
+    source <(argocd completion zsh)
+fi
+
 # ASDF managed tools
 ASDF_DIR=$HOME/.asdf
 if [ -d $ASDF_DIR ]; then
@@ -124,6 +128,8 @@ alias k=kubectl
 alias podman='podman-remote-static-linux_amd64'
 alias vi='nvim'
 alias vim='nvim'
+
+source <(k completion zsh)
 
 # He comes
 export COWPATH="/usr/share/cowsay/cows:$HOME/.cowsay:/usr/local/share/cows"
