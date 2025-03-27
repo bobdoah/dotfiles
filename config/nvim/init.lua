@@ -380,7 +380,12 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>sw', live_grep_args_shortcuts.grep_word_under_cursor, { desc = '[S]earch current [W]ord' })
+      vim.keymap.set(
+        'n',
+        '<leader>sw',
+        live_grep_args_shortcuts.grep_word_under_cursor,
+        { desc = '[S]earch current [W]ord' }
+      )
       vim.keymap.set('n', '<leader>sg', extensions.live_grep_args.live_grep_args, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
@@ -670,6 +675,7 @@ require('lazy').setup({
         python = { 'ruff_fix', 'ruff_format' },
         go = { 'gofmt', 'goimports' },
         terraform = { 'terraform_fmt' },
+        jsonnet = { 'jsonnetfmt' },
         ['*'] = { 'trim_newlines' },
         ['_'] = { 'trim_whitespace' },
         -- Conform can also run multiple formatters sequentially
