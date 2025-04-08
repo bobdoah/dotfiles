@@ -611,6 +611,7 @@ require('lazy').setup({
         'stylua', -- Used to format lua code
         'ruff',
         'shfmt',
+        'hclfmt',
         'goimports',
         'golangci-lint',
         'hadolint',
@@ -673,6 +674,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'ruff_fix', 'ruff_format' },
+        hcl = { 'hcl' },
         go = { 'gofmt', 'goimports' },
         terraform = { 'terraform_fmt' },
         jsonnet = { 'jsonnetfmt' },
@@ -867,6 +869,7 @@ require('lazy').setup({
           'c',
           'dockerfile',
           'go',
+          'hcl',
           'html',
           'lua',
           'markdown',
