@@ -16,6 +16,7 @@
 	defaultBranch = main
 [push]
 	autoSetupRemote = true
+	default = current
 [pull]
 	rebase = true
 [fetch]
@@ -24,3 +25,5 @@
 	insteadOf = https://gitlab.com/
 [include]
     path = ~/.gitconfig.local
+[branch]
+	autoSetupMerge = always
