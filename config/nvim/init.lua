@@ -678,6 +678,7 @@ require('lazy').setup({
         go = { 'gofmt', 'goimports' },
         terraform = { 'terraform_fmt' },
         jsonnet = { 'jsonnetfmt' },
+        json = { 'jq' },
         ['*'] = { 'trim_newlines' },
         ['_'] = { 'trim_whitespace' },
         -- Conform can also run multiple formatters sequentially
