@@ -558,6 +558,7 @@ require('lazy').setup({
         terraformls = {},
         tflint = {},
         pyre = {},
+        bashls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -612,9 +613,10 @@ require('lazy').setup({
         'ruff',
         'shfmt',
         'hclfmt',
-        'goimports',
+        'gci',
         'golangci-lint',
         'hadolint',
+        'shellcheck',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -672,10 +674,11 @@ require('lazy').setup({
       end,
 
       formatters_by_ft = {
+        bash = { 'shellcheck' },
         lua = { 'stylua' },
         python = { 'ruff_fix', 'ruff_format' },
         hcl = { 'hcl' },
-        go = { 'gofmt', 'goimports' },
+        go = { 'gofmt', 'gci' },
         terraform = { 'terraform_fmt' },
         jsonnet = { 'jsonnetfmt' },
         json = { 'jq' },
