@@ -13,7 +13,9 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh plugins/terraform
-    zgen oh-my-zsh plugins/ssh-agent
+    if [ -z "$SSH_AUTH_SOCK" ]; then
+        zgen oh-my-zsh plugins/ssh-agent
+    fi
     zgen oh-my-zsh plugins/docker
 
     zgen load zsh-users/zsh-completions src
@@ -142,3 +144,7 @@ alias z̸̡͊͜a̸̡̨͎̗̗͛̐̂̊l̶̜̳̦̞͆̓̅͛́ͅg̴̨͉͖͓̟͆ȍ̷�
 
 # bun completions
 [ -s "/home/rowillia/.bun/_bun" ] && source "/home/rowillia/.bun/_bun"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
