@@ -1,6 +1,7 @@
 [alias]
     ocmmit = commit
     commie = commit
+    co = checkout
     ci = commit
     tip = log -1
 [github]
