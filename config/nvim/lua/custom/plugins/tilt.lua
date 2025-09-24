@@ -4,6 +4,6 @@ vim.api.nvim_create_autocmd('BufRead', {
     vim.bo.filetype = 'tiltfile'
   end,
 })
-require('lspconfig').tilt_ls.setup {}
+vim.lsp.enable 'tilt_ls'
 vim.treesitter.language.register('starlark', 'tiltfile')
 return {}
