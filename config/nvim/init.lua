@@ -564,7 +564,7 @@ require('lazy').setup({
         tflint = {},
         pyrefly = {},
         bashls = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -677,6 +677,7 @@ require('lazy').setup({
         terraform = { 'terraform_fmt' },
         jsonnet = { 'jsonnetfmt' },
         json = { 'jq' },
+        rust = { 'rustfmt', lsp_format = 'fallback' },
         ['*'] = { 'trim_newlines' },
         ['_'] = { 'trim_whitespace' },
         -- Conform can also run multiple formatters sequentially
