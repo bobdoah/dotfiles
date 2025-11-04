@@ -72,8 +72,10 @@ export RPROMPT=''
 if [[ $(id -u ) != 0 ]]; then
     fpath=($ZSH_CONFIG_DIR/completions/ $fpath)
     fpath=($ZSH_CONFIG_DIR/functions/ $fpath)
+    fpath=($ZSH_CONFIG_DIR/private-functions/ $fpath)
 fi
 autoload -U $ZSH_CONFIG_DIR/functions/*(:t)
+autoload -U $ZSH_CONFIG_DIR/private-functions/*(:t)
 
 # Use completion
 autoload -U compinit && compinit
