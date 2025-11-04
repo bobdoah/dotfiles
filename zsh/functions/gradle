@@ -1,2 +1,0 @@
-#autoload
-docker run --rm -u $(id -u):$(id -g) -e GRADLE_USER_HOME=/home/gradle/project/.gradle -v $(pwd):/home/gradle/project -w /home/gradle/project gradle gradle "$@";

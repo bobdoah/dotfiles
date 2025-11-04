@@ -1,8 +1,0 @@
-#autoload
-if (( ${+2} )); then
-    if p4 changes -s shelved -u $P4USER | grep -i $1; then
-        p4 shelve -c $1 -d
-    fi
-    p4 changelist -o $1 | sed "/^#/d;/Files:/i \ \  Review: $2" | p4 changelist -i -u
-    p4 submit -c $1
-fi
