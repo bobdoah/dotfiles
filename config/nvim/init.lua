@@ -1,3 +1,4 @@
+-- spellchecker:off
 --[[
 
 =====================================================================
@@ -83,6 +84,7 @@ I hope you enjoy your Neovim journey,
 
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
+--spellchecker:on
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -169,6 +171,7 @@ end, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', function()
   vim.diagnostic.jump { count = 1, float = true }
 end, { desc = 'Go to next [D]iagnostic message' })
+-- spellchecker:ignore-next-line
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -291,6 +294,7 @@ require('lazy').setup({
         { '<leader>c', group = '[C]ode' },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
+        -- spellchecker:ignore-next-line
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
@@ -381,6 +385,7 @@ require('lazy').setup({
       pcall(require('telescope').load_extension, 'live_grep_args')
 
       -- See `:help telescope.builtin`
+      -- spellchecker:off
       local builtin = require 'telescope.builtin'
       local extensions = require('telescope').extensions
       local live_grep_args_shortcuts = require 'telescope-live-grep-args.shortcuts'
@@ -389,7 +394,12 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>sw', live_grep_args_shortcuts.grep_word_under_cursor, { desc = '[S]earch current [W]ord' })
+      vim.keymap.set(
+        'n',
+        '<leader>sw',
+        live_grep_args_shortcuts.grep_word_under_cursor,
+        { desc = '[S]earch current [W]ord' }
+      )
       vim.keymap.set('n', '<leader>sg', extensions.live_grep_args.live_grep_args, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
@@ -420,7 +430,7 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
-
+  -- spellchecker:on
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -565,6 +575,7 @@ require('lazy').setup({
         pyrefly = {},
         bashls = {},
         rust_analyzer = {},
+        typos_lsp = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -612,6 +623,7 @@ require('lazy').setup({
         'hadolint',
         'shellcheck',
         'rustfmt',
+        'typos',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -834,6 +846,7 @@ require('lazy').setup({
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
+      -- spellchecker:ignore-next-line
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
