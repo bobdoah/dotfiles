@@ -10,13 +10,9 @@ if ! zgen saved; then
 
     zgen oh-my-zsh
 
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/sudo
-    zgen oh-my-zsh plugins/terraform
     if [ -z "$SSH_AUTH_SOCK" ]; then
         zgen oh-my-zsh plugins/ssh-agent
     fi
-    zgen oh-my-zsh plugins/docker
 
     zgen load zsh-users/zsh-completions src
     zgen save
@@ -75,7 +71,9 @@ if [[ $(id -u ) != 0 ]]; then
     fpath=($ZSH_CONFIG_DIR/private-functions/ $fpath)
 fi
 autoload -U $ZSH_CONFIG_DIR/functions/*(:t)
-autoload -U $ZSH_CONFIG_DIR/private-functions/*(:t)
+
+PRIVATE_FUNCS=($ZSH_CONFIG_DIR/private-functions/*(N:t))
+(( ${#PRIVATE_FUNCS} )) && autoload -U $PRIVATE_FUNCS
 
 # Use completion
 autoload -U compinit && compinit
