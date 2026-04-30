@@ -98,6 +98,7 @@ vim.g.have_nerd_font = true
 -- Configure AI plugins
 vim.g.enable_ai = true
 vim.g.copilot_enabled = false
+vim.g.code_companion_enabled = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
