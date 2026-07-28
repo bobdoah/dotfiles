@@ -1,16 +1,18 @@
+# vim: set noexpandtab tabstop=4 shiftwidth=4 :
 [alias]
-    ocmmit = commit
-    commie = commit
-    co = checkout
-    ci = commit
-    tip = log -1
+	ocmmit = commit
+	commie = commit
+	co = checkout
+	ci = commit
+	tip = log -1
+	pom = pull origin main
 [github]
-    user = bobdoah
+	user = bobdoah
 [log]
-    date = iso
+	date = iso
 [user]
-    name = Robert Williams
-    email = 1266467+bobdoah@users.noreply.github.com
+	name = Robert Williams
+	email = 1266467+bobdoah@users.noreply.github.com
 [core]
 	ignorecase = false
 [init]
@@ -25,7 +27,7 @@
 [url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
 [include]
-    path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 [branch]
 	autoSetupMerge = always
 [merge]
