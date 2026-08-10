@@ -1,0 +1,14 @@
+-- Copy this file to ai_local.lua (gitignored) on each machine to set its
+-- location and/or override individual tool toggles from custom/ai.lua's
+-- defaults. Only what you set here takes effect; everything else keeps
+-- its location default.
+
+return {
+  -- location = 'work', -- or 'home'; defaults to 'home' if unset
+
+  tools = {
+    -- claude = false,
+    -- copilot = true,
+    -- opencode = true,
+  },
+}

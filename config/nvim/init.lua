@@ -96,9 +96,11 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- Configure AI plugins
+-- vim.g.copilot_enabled controls the zbirenbaum/copilot.lua inline-suggestion
+-- plugin specifically. Claude/opencode/Copilot-CLI (sidekick) toggles and
+-- work/home location live in lua/custom/ai.lua instead.
 vim.g.enable_ai = true
 vim.g.copilot_enabled = false
-vim.g.code_companion_enabled = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
