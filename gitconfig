@@ -6,6 +6,7 @@
 	ci = commit
 	tip = log -1
 	pom = pull origin main
+	pum = pull upstream main
 [github]
 	user = bobdoah
 [log]
