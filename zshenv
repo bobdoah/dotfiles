@@ -20,6 +20,7 @@ PATH=$PATH:$HOME/.pulumi/bin
 PATH=$PATH:$HOME/.kpp/bin
 PATH=$PATH:$HOME/.local/share/nvim/mason/bin/
 PATH=$PATH:$HOME/.bun/bin
+PATH=$PATH:$HOME/.opencode/bin
 export PATH
 
 
