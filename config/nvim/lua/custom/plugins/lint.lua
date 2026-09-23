@@ -8,6 +8,7 @@ return {
       lint.linters_by_ft = {
         dockerfile = { 'hadolint' },
         golang = { 'golangcilint' },
+        ['yaml.ghaction'] = { 'actionlint' },
       }
 
       --- Create autocommand which does the actual linting

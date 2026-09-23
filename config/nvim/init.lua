@@ -617,6 +617,7 @@ require('lazy').setup({
         'goimports',
         'golangci-lint',
         'hadolint',
+        'actionlint',
         'shellcheck',
         'typos',
       })
