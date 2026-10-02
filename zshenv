@@ -2,6 +2,9 @@ export EDITOR=nvim
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
+# Ubuntu's global zshrc otherwise initializes completion before our fpath.
+skip_global_compinit=1
+
 PATH=/usr/local/bin:$PATH
 PATH=/snap/bin:$PATH
 # Superuser locations

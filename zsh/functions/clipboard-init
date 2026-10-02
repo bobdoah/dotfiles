@@ -1,0 +1,29 @@
+function clipboard-init() {
+    if [[ $OSTYPE == darwin* ]] && (( $+commands[pbcopy] && $+commands[pbpaste] )); then
+        function clipcopy() { pbcopy < "${1:-/dev/stdin}"; }
+        function clippaste() { pbpaste; }
+    elif [[ -n $WAYLAND_DISPLAY ]] && (( $+commands[wl-copy] && $+commands[wl-paste] )); then
+        function clipcopy() { wl-copy < "${1:-/dev/stdin}"; }
+        function clippaste() { wl-paste; }
+    elif [[ -n $DISPLAY ]] && (( $+commands[xclip] )); then
+        function clipcopy() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
+        function clippaste() { xclip -out -selection clipboard; }
+    elif [[ -n $DISPLAY ]] && (( $+commands[xsel] )); then
+        function clipcopy() { xsel --clipboard --input < "${1:-/dev/stdin}"; }
+        function clippaste() { xsel --clipboard --output; }
+    elif (( $+commands[win32yank] )); then
+        function clipcopy() { win32yank -i < "${1:-/dev/stdin}"; }
+        function clippaste() { win32yank -o; }
+    elif [[ $OSTYPE == (cygwin|msys)* ]]; then
+        function clipcopy() { command cat "${1:-/dev/stdin}" > /dev/clipboard; }
+        function clippaste() { command cat /dev/clipboard; }
+    elif [[ -n $TMUX ]] && (( $+commands[tmux] )); then
+        function clipcopy() { tmux load-buffer "${1:--}"; }
+        function clippaste() { tmux save-buffer -; }
+    else
+        print -u2 "clipboard: no supported clipboard tool found"
+        return 1
+    fi
+
+    unfunction clipboard-init
+}

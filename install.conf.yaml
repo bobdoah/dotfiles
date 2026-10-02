@@ -32,8 +32,6 @@
     ~/.zshenv:
     ~/.zshrc:
       force: true
-    ~/.zgen:
-      ignore-missing: true
 
 - crossplatform-link:
     "~/Library/Application Support/k9s":

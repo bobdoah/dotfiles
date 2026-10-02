@@ -1,22 +1,14 @@
 ZSH_CONFIG_DIR=$HOME/.zsh
-source $ZSH_CONFIG_DIR/private 2>/dev/null
+source "$ZSH_CONFIG_DIR/private" 2>/dev/null
 
-# load zgen
-source "${HOME}/.zgen/zgen.zsh"
-
-# if the init script doesn't exist
-if ! zgen saved; then
-    echo "Creating a zgen save"
-
-    zgen oh-my-zsh
-
-    if [ -z "$SSH_AUTH_SOCK" ]; then
-        zgen oh-my-zsh plugins/ssh-agent
-    fi
-
-    zgen load zsh-users/zsh-completions src
-    zgen save
-fi
+# Load additional completion definitions from the tracked submodule.
+fpath=(
+    "$ZSH_CONFIG_DIR/plugins/zsh-completions/src"
+    "$ZSH_CONFIG_DIR/completions"
+    "$ZSH_CONFIG_DIR/functions"
+    "$ZSH_CONFIG_DIR/private-functions"
+    $fpath
+)
 
 # Use emacs mode (same as bash default)
 bindkey -e
@@ -52,6 +44,16 @@ zle -N zle-line-finish
 export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTFILE=$ZSH_CONFIG_DIR/histfile
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+
+# Keep recently visited directories available through cd -1, cd -2, etc.
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_MINUS
 
 # backwards TAB
 bindkey '^[[Z' reverse-menu-complete
@@ -64,62 +66,56 @@ setopt PROMPT_SUBST
 export PROMPT='%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%}:%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%}%# '
 export RPROMPT=''
 
-# Update fpath to include home directory
-if [[ $(id -u ) != 0 ]]; then
-    fpath=($ZSH_CONFIG_DIR/completions/ $fpath)
-    fpath=($ZSH_CONFIG_DIR/functions/ $fpath)
-    fpath=($ZSH_CONFIG_DIR/private-functions/ $fpath)
-fi
-autoload -U $ZSH_CONFIG_DIR/functions/*(:t)
+# Load local functions on demand.
+autoload -U "$ZSH_CONFIG_DIR"/functions/*(N:t)
 
 PRIVATE_FUNCS=($ZSH_CONFIG_DIR/private-functions/*(N:t))
 (( ${#PRIVATE_FUNCS} )) && autoload -U $PRIVATE_FUNCS
 
-# Use completion
-autoload -U compinit && compinit
+# Detect the platform clipboard only when one of these is first used.
+function clipcopy() {
+    clipboard-init || return
+    clipcopy "$@"
+}
+
+function clippaste() {
+    clipboard-init || return
+    clippaste "$@"
+}
+
+# Rebuild by deleting this dump after adding or updating completion definitions.
+autoload -Uz compinit
+compinit -C -d "$ZSH_CONFIG_DIR/.zcompdump"
 
 # Show completion menu when number of options is at least two
 zstyle ':completion:*' menu select=2
 
-# Suffix aliases
-autoload -U zsh-mime-setup
-zsh-mime-setup
-
 # Add an alias to quickly reload zshrc
 alias reload="source $HOME/.zshrc"
 
-# Set display
-PID=$(pgrep -n -u $USER XWin)
-if [[ -n $PID ]]; then
+# Set the X display when running under Cygwin.
+if [[ $OSTYPE == cygwin* ]] && pgrep -n -u "$USER" XWin >/dev/null; then
     export DISPLAY=$(pid=$(pgrep XWin); cat /proc/$pid/environ | tr '\0' '\n' | grep '^DISPLAY=' | cut -d '=' -f 2)
 fi
 
 if [ -f "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env"; fi
 
-autoload -U add-zsh-hook
+# Generate expensive command completions only when they are first requested.
+function _load_completion() {
+    local command_name=$1 completion_function=$2
+    shift 2
+    unfunction "$completion_function"
+    source <(command "$command_name" completion zsh)
+    "$completion_function" "$@"
+}
 
-if type "kubectl" > /dev/null; then
-    source <(kubectl completion zsh)
-fi
-if type "helm" > /dev/null; then
-    source <(helm completion zsh)
-fi
-
-if type "kustomize" > /dev/null; then
-    source <(kustomize completion zsh)
-fi
-
-if type "flux" > /dev/null; then
-    source <(flux completion zsh)
-fi
-
-if type "argocd" > /dev/null; then
-    source <(argocd completion zsh)
-fi
-
-if type "talosctl" > /dev/null; then
-    source <(talosctl completion zsh)
-fi
+for command_name in kubectl helm kustomize flux argocd talosctl; do
+    completion_function=_$command_name
+    eval "function $completion_function() { _load_completion $command_name $completion_function \"\$@\" }"
+    compdef "$completion_function" "$command_name"
+done
+compdef _kubectl k
+unset command_name completion_function
 
 # ASDF managed tools
 ASDF_DIR=$HOME/.asdf
@@ -135,8 +131,6 @@ alias podman='podman-remote-static-linux_amd64'
 alias vi='nvim'
 alias vim='nvim'
 
-source <(k completion zsh)
-
 # He comes
 export COWPATH="/usr/share/cowsay/cows:$HOME/.cowsay:/usr/local/share/cows"
 alias z̸̡͊͜a̸̡̨͎̗̗͛̐̂̊l̶̜̳̦̞͆̓̅͛́ͅg̴̨͉͖͓̟͆ơ̷̛̘͇̏̾̐="echo 'Ṫ͌ó̍ ̍͂̓̍̍̀i̊ͯ͒nͧ̍̓̃͋vok̂̓ͤ̓̂ěͬ ͆tͬ̐́̐͆h̒̏͌̓e͂ ̎̊h̽͆ͯ̄ͮi͊̂ͧͫ̇̃vͥͦ́ẻͤ-͒m̈́̀i̓ͮ͗̑͌̆̅n̓̓ͨd̊̑͛̔̚ ͨͮ̊̾rͪeͭͭ͑ͧ́͋p̈́̅̚rͧe̒̈̌s̍̽ͩ̓̇e͗n̏͊ͬͭtͨ͆ͤ̚iͪ͗̍n͐͒g̾ͦ̎ ͥ͌̽̊ͩͥ͗c̀ͬͣha̍̏̉ͪ̈̚o̊̏s̊̋̀̏̽̚.͒ͫ͛͛̎ͥ
@@ -146,9 +140,11 @@ alias z̸̡͊͜a̸̡̨͎̗̗͛̐̂̊l̶̜̳̦̞͆̓̅͛́ͅg̴̨͉͖͓̟͆ȍ̷�
 ͑̌ͥ͛ͩ̚H̆ͧ̓e̍͊̒ͣ w̄́̀ho͐͋̍̌̎ͪ ̊̇͗͛̓Wͪ̅ä̇̍̌̄̈́̏ìͥ͗͌ͣͤt̾ͮ̒̽͌s̍͊ ̎̅̿̌Bͤ́ͬe̊͂̾̀̆͆̇ḧ́͂͑̇͋̄̾i̎ͬͬͨ̒̽͑n̉d̾̏̈́͊̌̄̓ ͦ̅ͬ̃T̂ͧ̚hͧͨ͗̂͂͋e̎̓ W̃̽͋͐̀a̍̈́̆̓̐lͫlͧ.̾
 ͒ͤ͌ͪͭZ͂̾͂̄͗ͦẢͪͣ͌͑̒̐LͦGͦͩ̓ͧOͭ̎̒͑!̇ͪ͐ͩͨ' | cowsay -f garfield.cow"
 
-# bun completions
-[ -s "/home/rowillia/.bun/_bun" ] && source "/home/rowillia/.bun/_bun"
-
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+    function nvm() {
+        unfunction nvm
+        source "$NVM_DIR/nvm.sh"
+        nvm "$@"
+    }
+fi

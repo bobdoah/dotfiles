@@ -1,9 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "zgen"]
-	path = zgen
-	url = https://github.com/tarjoilija/zgen.git
 [submodule "tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
@@ -19,3 +16,6 @@
 [submodule "dotbot-crossplatform"]
 	path = dotbot-crossplatform
 	url = git@github.com:msdrigg/dotbot-crossplatform.git
+[submodule "zsh/plugins/zsh-completions"]
+	path = zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
