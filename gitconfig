@@ -4,9 +4,11 @@
 	commie = commit
 	co = checkout
 	ci = commit
+	st = status
 	tip = log -1
 	pom = pull origin main
 	pum = pull upstream main
+	wt = worktree
 [github]
 	user = bobdoah
 [log]
