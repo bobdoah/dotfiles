@@ -24,6 +24,20 @@ PATH=$PATH:$HOME/.kpp/bin
 PATH=$PATH:$HOME/.local/share/nvim/mason/bin/
 PATH=$PATH:$HOME/.bun/bin
 PATH=$PATH:$HOME/.opencode/bin
+
+# zshrc defers sourcing nvm.sh because it is slow to load, so put the default
+# version's bin on PATH here. Without this, node, npm and anything installed
+# globally through npm are missing until nvm is called by hand.
+export NVM_DIR=$HOME/.nvm
+nvm_default=
+[[ -r $NVM_DIR/alias/default ]] && nvm_default=$(<$NVM_DIR/alias/default)
+while [[ -n $nvm_default && -r $NVM_DIR/alias/$nvm_default ]]; do
+    nvm_default=$(<$NVM_DIR/alias/$nvm_default)
+done
+nvm_bin=($NVM_DIR/versions/node/v${nvm_default#v}*/bin(N/om))
+(( $#nvm_bin )) && PATH=$nvm_bin[1]:$PATH
+unset nvm_default nvm_bin
+
 export PATH
 
 
