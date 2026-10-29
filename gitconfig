@@ -7,7 +7,9 @@
 	st = status
 	tip = log -1
 	pom = pull origin main
+	po = pull origin
 	pum = pull upstream main
+	pu = pull upstream
 	wt = worktree
 [github]
 	user = bobdoah
