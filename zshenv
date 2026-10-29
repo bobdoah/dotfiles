@@ -14,6 +14,7 @@ PATH=$HOME/bin:$HOME/.local/bin:$PATH
 # Tool paths
 PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+PATH=$PATH:/opt/nvim-linux-x86_64/bin
 PATH=$PATH:/opt/nvim-linux64/bin
 PATH=$HOME/go/bin:$PATH
 PATH=/usr/local/go/bin:$PATH
