@@ -314,7 +314,6 @@ require('lazy').setup({
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     lazy = false,
-    branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for install instructions
@@ -395,7 +394,12 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>sw', live_grep_args_shortcuts.grep_word_under_cursor, { desc = '[S]earch current [W]ord' })
+      vim.keymap.set(
+        'n',
+        '<leader>sw',
+        live_grep_args_shortcuts.grep_word_under_cursor,
+        { desc = '[S]earch current [W]ord' }
+      )
       vim.keymap.set('n', '<leader>sg', extensions.live_grep_args.live_grep_args, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
@@ -877,20 +881,20 @@ require('lazy').setup({
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
       local treesitter = require 'nvim-treesitter'
       local parsers = {
-          'bash',
-          'c',
-          'dockerfile',
-          'go',
-          'hcl',
-          'html',
-          'lua',
-          'make',
-          'markdown',
-          'starlark',
-          'terraform',
-          'vim',
-          'vimdoc',
-          'yaml',
+        'bash',
+        'c',
+        'dockerfile',
+        'go',
+        'hcl',
+        'html',
+        'lua',
+        'make',
+        'markdown',
+        'starlark',
+        'terraform',
+        'vim',
+        'vimdoc',
+        'yaml',
       }
 
       if treesitter.install then
