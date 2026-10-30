@@ -884,6 +884,7 @@ require('lazy').setup({
         'bash',
         'c',
         'dockerfile',
+        'gitcommit',
         'go',
         'hcl',
         'html',
