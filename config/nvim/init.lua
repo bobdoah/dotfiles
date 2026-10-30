@@ -870,13 +870,13 @@ require('lazy').setup({
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
     build = ':TSUpdate',
     config = function()
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup {
-        ensure_installed = {
+      local treesitter = require 'nvim-treesitter'
+      local parsers = {
           'bash',
           'c',
           'dockerfile',
@@ -891,12 +891,36 @@ require('lazy').setup({
           'vim',
           'vimdoc',
           'yaml',
-        },
-        -- Autoinstall languages that are not installed
-        auto_install = true,
-        highlight = { enable = true },
-        indent = { enable = true },
       }
+
+      if treesitter.install then
+        -- New nvim-treesitter interface (main branch, Neovim 0.12+).
+        treesitter.setup()
+        treesitter.install(parsers)
+
+        -- Highlighting is provided by Neovim; indentation is provided by
+        -- nvim-treesitter and remains opt-in.
+        vim.api.nvim_create_autocmd('FileType', {
+          callback = function(args)
+            local lang = vim.treesitter.language.get_lang(args.match)
+            if lang then
+              local ok = pcall(vim.treesitter.start, args.buf, lang)
+              if not ok then
+                return
+              end
+              vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end
+          end,
+        })
+      else
+        -- Backward-compatible interface for an existing master-branch checkout.
+        require('nvim-treesitter.configs').setup {
+          ensure_installed = parsers,
+          auto_install = true,
+          highlight = { enable = true },
+          indent = { enable = true },
+        }
+      end
 
       -- There are additional nvim-treesitter modules that you can use to interact
       -- with nvim-treesitter. You should go explore a few and see what interests you:
