@@ -556,9 +556,10 @@ require('lazy').setup({
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      vim.lsp.config('*', { capabilities = capabilities })
 
-      -- Enable the following language servers
-      --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
+      -- Configure servers to ensure installed; Mason-LSPConfig also enables
+      -- every installed Mason package that maps to an LSP server.
       --
       --  Add any additional override configuration in the following tables. Available keys are:
       --  - cmd (table): Override the default command used to start the server
@@ -569,7 +570,6 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
-        jedi_language_server = {},
         terraformls = {},
         tflint = {},
         pyrefly = {},
@@ -625,22 +625,17 @@ require('lazy').setup({
         'shellcheck',
         'typos',
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+      for server_name, server_config in pairs(servers) do
+        vim.lsp.config(server_name, server_config)
+      end
 
       require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
+        ensure_installed = {}, -- Mason-tool-installer manages the desired packages below.
+        automatic_enable = true, -- Enable every installed Mason package that maps to an LSP.
       }
+
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     end,
   },
 
@@ -891,6 +886,7 @@ require('lazy').setup({
         'lua',
         'make',
         'markdown',
+        'python',
         'starlark',
         'terraform',
         'vim',
