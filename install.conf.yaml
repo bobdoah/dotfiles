@@ -9,8 +9,6 @@
       force: true
 
 - link:
-    ~/.asdf:
-      ignore-missing: true
     ~/.config/sql-lint:
       path: config/sql-lint
     ~/.config/yamllint:
@@ -30,7 +28,6 @@
     ~/.gitconfig:
     ~/.tmux:
     ~/.tmux.conf:
-    ~/.tool-versions:
     ~/.zsh:
     ~/.zshenv:
     ~/.zshrc:
@@ -47,22 +44,15 @@
       create: true
 
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
     - [
-        'if which tmux >/dev/null 2>&1; then ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all; fi',
+        'git submodule update --init --recursive dotbot tmux/plugins/tpm config/alacritty/catppuccin dotbot-crossplatform zsh/plugins/zsh-completions',
+        Installing submodules,
+      ]
+    - [
+        'FNM_BIN="$(command -v fnm || true)"; if [ -z "$FNM_BIN" ]; then curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell; FNM_BIN="$HOME/.local/share/fnm/fnm"; fi; "$FNM_BIN" install --lts && "$FNM_BIN" default lts-latest',
+        Installing fnm and Node.js,
+      ]
+    - [
+        'if command -v tmux >/dev/null 2>&1; then ~/.tmux/plugins/tpm/bin/install_plugins; fi',
         Installing tmux plugins,
       ]
-
-- asdf:
-    - plugin: terraform-validator
-      url: https://github.com/looztra/asdf-terraform-validator
-      versions:
-        - latest
-    - plugin: terraform-docs
-      url: https://github.com/looztra/asdf-terraform-docs
-      versions:
-        - latest
-    - plugin: k9s
-      url: https://github.com/looztra/asdf-k9s
-      versions:
-        - latest

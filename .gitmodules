@@ -4,18 +4,12 @@
 [submodule "tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "dotbot-asdf"]
-	path = dotbot-asdf
-	url = https://github.com/sobolevn/dotbot-asdf.git
-[submodule "asdf"]
-	path = asdf
-	url = https://github.com/asdf-vm/asdf.git
 [submodule "alacritty/catppuccin"]
 	path = config/alacritty/catppuccin
 	url = https://github.com/catppuccin/alacritty.git
 [submodule "dotbot-crossplatform"]
 	path = dotbot-crossplatform
-	url = git@github.com:msdrigg/dotbot-crossplatform.git
+	url = https://github.com/msdrigg/dotbot-crossplatform.git
 [submodule "zsh/plugins/zsh-completions"]
 	path = zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git

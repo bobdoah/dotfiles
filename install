@@ -2,8 +2,6 @@
 
 set -e
 
-PATH="$HOME/.asdf/bin:$PATH"
-
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
@@ -11,10 +9,9 @@ DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
+git submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}" dotbot-crossplatform
 
 PATH=${PATH} "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" \
-  --plugin-dir dotbot-asdf \
   --plugin-dir dotbot-crossplatform \
   -c "${CONFIG}" "${@}"

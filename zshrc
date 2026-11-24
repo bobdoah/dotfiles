@@ -121,10 +121,13 @@ if [ -f "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env"; fi
 # Complete the kubectl shorthand with kubectl's generated definition.
 compdef _kubectl k
 
-# ASDF managed tools
-ASDF_DIR=$HOME/.asdf
-if [ -d $ASDF_DIR ]; then
-   . $ASDF_DIR/asdf.sh
+# Node.js version management.
+FNM_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/fnm"
+if [[ -x "$FNM_PATH/fnm" ]]; then
+    path=("$FNM_PATH" $path)
+    eval "$("$FNM_PATH/fnm" env --use-on-cd --shell zsh)"
+elif (( $+commands[fnm] )); then
+    eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
 # Shorthand commands
@@ -143,12 +146,3 @@ alias z̸̡͊͜a̸̡̨͎̗̗͛̐̂̊l̶̜̳̦̞͆̓̅͛́ͅg̴̨͉͖͓̟͆ȍ̷�
 ̔̅̈́̃T̋h̏̅͛eͭ ̍ͬ̓Ṅ̂̂e͆ͥ̃ͧ̏̀z͒̋̏̇̑peͬ͗̊̾̌̽ͦrͭ̒͒ͪd̀̋̅̔̿̔̄iͨ̆͐a̓̂̎̚ṅ hiͬ̓́ͪ̓v̂ͪ̎͋ͤ͑ė͒̐ͪ͛͐ͥ-͌̓̈́̒mͨĭn̾̅d̔ͭ ̄̃ͪ̆ͫ͂o̾f̋ͩ̍ ͮcͬ̏͊h̒͊̌̍̈́̓a̐͋̀o͆ͤ́ͭ̑ͮ̄s̀Ìͮ̓ͬ. ̆ͪͧͣͩZ̈́a̎̇l͌́gͪ̒ǒͦ̎. ̾͑̐̇
 ͑̌ͥ͛ͩ̚H̆ͧ̓e̍͊̒ͣ w̄́̀ho͐͋̍̌̎ͪ ̊̇͗͛̓Wͪ̅ä̇̍̌̄̈́̏ìͥ͗͌ͣͤt̾ͮ̒̽͌s̍͊ ̎̅̿̌Bͤ́ͬe̊͂̾̀̆͆̇ḧ́͂͑̇͋̄̾i̎ͬͬͨ̒̽͑n̉d̾̏̈́͊̌̄̓ ͦ̅ͬ̃T̂ͧ̚hͧͨ͗̂͂͋e̎̓ W̃̽͋͐̀a̍̈́̆̓̐lͫlͧ.̾
 ͒ͤ͌ͪͭZ͂̾͂̄͗ͦẢͪͣ͌͑̒̐LͦGͦͩ̓ͧOͭ̎̒͑!̇ͪ͐ͩͨ' | cowsay -f garfield.cow"
-
-# NVM_DIR and the default version's bin are set up in zshenv.
-if [[ -s "$NVM_DIR/nvm.sh" ]]; then
-    function nvm() {
-        unfunction nvm
-        source "$NVM_DIR/nvm.sh"
-        nvm "$@"
-    }
-fi
