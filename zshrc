@@ -83,9 +83,27 @@ function clippaste() {
     clippaste "$@"
 }
 
-# Rebuild by deleting this dump after adding or updating completion definitions.
-autoload -Uz compinit
-compinit -C -d "$ZSH_CONFIG_DIR/.zcompdump"
+# Refresh generated tool completions only when their binaries change.
+() {
+    setopt localoptions extendedglob
+    local tool completion regenerate=0
+
+    for tool in kubectl helm kustomize flux argocd talosctl; do
+        (( $+commands[$tool] )) || continue
+        completion="$ZSH_CONFIG_DIR/completions/_$tool"
+        if [[ ! -s $completion || $commands[$tool] -nt $completion ]]; then
+            command "$tool" completion zsh >| "$completion"
+            regenerate=1
+        fi
+    done
+
+    autoload -Uz compinit
+    if (( regenerate )) || [[ -z "$ZSH_CONFIG_DIR/.zcompdump"(#qN.mh-24) ]]; then
+        compinit -d "$ZSH_CONFIG_DIR/.zcompdump"
+    else
+        compinit -C -d "$ZSH_CONFIG_DIR/.zcompdump"
+    fi
+}
 
 # Show completion menu when number of options is at least two
 zstyle ':completion:*' menu select=2
@@ -100,22 +118,8 @@ fi
 
 if [ -f "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env"; fi
 
-# Generate expensive command completions only when they are first requested.
-function _load_completion() {
-    local command_name=$1 completion_function=$2
-    shift 2
-    unfunction "$completion_function"
-    source <(command "$command_name" completion zsh)
-    "$completion_function" "$@"
-}
-
-for command_name in kubectl helm kustomize flux argocd talosctl; do
-    completion_function=_$command_name
-    eval "function $completion_function() { _load_completion $command_name $completion_function \"\$@\" }"
-    compdef "$completion_function" "$command_name"
-done
+# Complete the kubectl shorthand with kubectl's generated definition.
 compdef _kubectl k
-unset command_name completion_function
 
 # ASDF managed tools
 ASDF_DIR=$HOME/.asdf
