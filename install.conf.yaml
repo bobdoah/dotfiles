@@ -22,6 +22,9 @@
     ~/.config/kitty:
       path: config/kitty
       force: true
+    ~/.config/process-compose:
+      path: config/process-compose
+      force: true
     ~/.cowsay:
     ~/.dotfiles: ''
     ~/.gitconfig:
