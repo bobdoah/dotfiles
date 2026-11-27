@@ -893,6 +893,7 @@ require('lazy').setup({
         'python',
         'starlark',
         'terraform',
+        'typescript',
         'vim',
         'vimdoc',
         'yaml',
